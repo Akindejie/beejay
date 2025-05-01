@@ -66,7 +66,7 @@ const Header = () => {
             href="/"
             className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
           >
-            LFA {/* Initials or small logo */}
+            AKINDEJIE {/* Initials or small logo */}
           </Link>
         )}
         <div
@@ -111,7 +111,7 @@ const Header = () => {
             <div className="hidden md:flex items-center bg-primary/20 dark:bg-primary/30 rounded-full px-3 py-1 overflow-hidden relative h-7 w-48">
               {' '}
               {/* Adjust width as needed */}
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               <div className="absolute left-0 top-0 bottom-0 flex items-center whitespace-nowrap animate-marquee">
                 {/* Duplicate text for seamless loop */}
                 <span className="text-foreground font-medium text-xs pl-7 pr-8">

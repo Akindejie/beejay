@@ -19,7 +19,8 @@ export default function AnimatedButton({
   const baseClasses = {
     primary: 'bg-primary text-primary-foreground',
     secondary: 'bg-white text-primary',
-    outline: 'bg-primary border-2 border-primary-foreground/20 text-primary-foreground',
+    outline:
+      'border-2 border-primary text-foreground dark:text-primary-foreground',
   };
 
   const hoverVariants = {
@@ -40,4 +41,4 @@ export default function AnimatedButton({
       </motion.div>
     </Link>
   );
-} 
+}

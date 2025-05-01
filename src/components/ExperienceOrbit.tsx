@@ -9,8 +9,11 @@ import {
   SiTypescript,
   SiNodedotjs,
   SiTailwindcss,
+  SiJavascript,
+  SiDocker,
 } from 'react-icons/si';
-import { FaDatabase, FaNetworkWired, FaPalette } from 'react-icons/fa'; // Fallback icons
+import { FaDatabase, FaNetworkWired, FaPalette, FaRobot } from 'react-icons/fa'; // Fallback icons
+import { VscCode } from 'react-icons/vsc'; // VS Code icon
 
 // Example Skill Badge Component (can be customized)
 const SkillBadge = ({
@@ -55,36 +58,60 @@ const ExperienceOrbit = () => {
   // Define skills with React Icons
   const skillsOrbit1 = [
     { text: 'Next.js', icon: <SiNextdotjs />, position: 'top-[5%] left-[50%]' },
-    { text: 'React', icon: <SiReact />, position: 'top-[50%] left-[95%]' },
+    { text: 'React', icon: <SiReact />, position: 'top-[30%] left-[90%]' },
     {
       text: 'TypeScript',
       icon: <SiTypescript />,
+      position: 'top-[70%] left-[90%]',
+    },
+    {
+      text: 'Node.js',
+      icon: <SiNodedotjs />,
       position: 'top-[95%] left-[50%]',
     },
-    { text: 'Node.js', icon: <SiNodedotjs />, position: 'top-[50%] left-[5%]' },
+    {
+      text: 'JavaScript',
+      icon: <SiJavascript />,
+      position: 'top-[70%] left-[10%]',
+    },
+    {
+      text: 'IDE',
+      icon: <VscCode />,
+      position: 'top-[30%] left-[10%]',
+    },
   ];
 
   const skillsOrbit2 = [
     {
       text: 'Tailwind CSS',
       icon: <SiTailwindcss />,
-      position: 'top-[20%] left-[80%]',
+      position: 'top-[10%] left-[50%]',
     },
     {
       text: 'Databases',
       icon: <FaDatabase />,
-      position: 'top-[80%] left-[80%]',
-    }, // Using FaDatabase
+      position: 'top-[35%] left-[85%]',
+    },
     {
       text: 'API Design',
       icon: <FaNetworkWired />,
-      position: 'top-[80%] left-[20%]',
-    }, // Using FaNetworkWired
+      position: 'top-[90%] left-[50%]',
+    },
     {
       text: 'System Design',
       icon: <FaPalette />,
-      position: 'top-[20%] left-[20%]',
-    }, // Using FaPalette (Placeholder)
+      position: 'top-[65%] left-[15%]',
+    },
+    {
+      text: 'DevOps',
+      icon: <SiDocker />,
+      position: 'top-[35%] left-[15%]',
+    },
+    {
+      text: 'AI Integration',
+      icon: <FaRobot />,
+      position: 'top-[65%] left-[85%]',
+    },
   ];
 
   return (

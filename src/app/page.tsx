@@ -168,7 +168,7 @@ export default function Home() {
               delay={0.1}
             >
               <motion.div
-                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-card-border dark:bg-opacity-50 dark:backdrop-blur-md"
+                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-opacity-50 dark:backdrop-blur-md"
                 whileHover={{
                   y: -10,
                   boxShadow:
@@ -221,7 +221,102 @@ export default function Home() {
                         clipRule="evenodd"
                       />
                     </svg>
+                    Troubleshooting & Diagnostics
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                     Network Troubleshooting
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Scripting & Automation
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Remote Support Tools
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Ticketing Systems
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Cloud Platforms
                   </motion.li>
                   <motion.li
                     className="flex items-center"
@@ -242,25 +337,6 @@ export default function Home() {
                     </svg>
                     System Administration
                   </motion.li>
-                  <motion.li
-                    className="flex items-center"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: 'spring', stiffness: 400 }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-accent mr-2"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Technical Documentation
-                  </motion.li>
                 </ul>
               </motion.div>
             </AnimateOnScroll>
@@ -274,7 +350,7 @@ export default function Home() {
               delay={0.3}
             >
               <motion.div
-                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-card-border dark:bg-opacity-50 dark:backdrop-blur-md"
+                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-opacity-50 dark:backdrop-blur-md"
                 whileHover={{
                   y: -10,
                   boxShadow:
@@ -345,7 +421,7 @@ export default function Home() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    API Development
+                    API & System Design
                   </motion.li>
                   <motion.li
                     className="flex items-center"
@@ -364,7 +440,83 @@ export default function Home() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Database Design
+                    Containerization
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Version Control
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    CI/CD Pipelines
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Cloud Deployment
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Performance Optimization
                   </motion.li>
                 </ul>
               </motion.div>
@@ -379,7 +531,7 @@ export default function Home() {
               delay={0.5}
             >
               <motion.div
-                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-card-border dark:bg-opacity-50 dark:backdrop-blur-md"
+                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-opacity-50 dark:backdrop-blur-md"
                 whileHover={{
                   y: -10,
                   boxShadow:
@@ -450,7 +602,26 @@ export default function Home() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Brand Identity
+                    Animation Basics
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Design Software Mastery
                   </motion.li>
                   <motion.li
                     className="flex items-center"
@@ -470,6 +641,25 @@ export default function Home() {
                       />
                     </svg>
                     Visual Content Creation
+                  </motion.li>
+                  <motion.li
+                    className="flex items-center"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-accent mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Layout & Composition
                   </motion.li>
                 </ul>
               </motion.div>
@@ -534,30 +724,33 @@ export default function Home() {
             {/* Project 1 */}
             <AnimateOnScroll delay={0.1}>
               <ProjectCard
-                title="Octogatos"
+                title="LeoPhoenix Tech"
                 location="🇺🇸 San Francisco - United States"
-                designedBy="Insany"
-                developedBy="Eve Kayser"
+                developedBy="Akindeji"
+                projectUrl="https://leophoenix.tech/"
+                imageUrl="/project-images/leophoenix-tech.png"
               />
             </AnimateOnScroll>
 
             {/* Project 2 */}
             <AnimateOnScroll delay={0.3}>
               <ProjectCard
-                title="Protex AI"
-                location="🇮🇪 Limerick, Ireland"
-                designedBy="Insany"
-                developedBy="Eve Kayser"
+                title="ZenAdmin"
+                location="🇩🇪 Germany"
+                developedBy="Akindeji"
+                projectUrl="https://www.zenadmin.ai/"
+                imageUrl="/project-images/zenadmin.png"
               />
             </AnimateOnScroll>
 
             {/* Project 3 */}
             <AnimateOnScroll delay={0.5}>
               <ProjectCard
-                title="XB Fulfillment"
-                location="🇺🇸 Los Angeles - United States"
-                designedBy="Eve Kayser"
-                developedBy="Eve Kayser"
+                title="Bolibro Realty"
+                location="🇺🇸 Ohio - United States"
+                developedBy="Akindeji"
+                projectUrl="https://www.bolibrorealty.com/"
+                imageUrl="/project-images/bolibro.png"
               />
             </AnimateOnScroll>
           </div>
