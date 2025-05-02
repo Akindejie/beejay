@@ -92,10 +92,10 @@ export default function Home() {
               variants={fadeInLeft}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <AnimatedButton href="/pages/projects" variant="secondary">
+              <AnimatedButton href="/projects" variant="secondary">
                 View Projects
               </AnimatedButton>
-              <AnimatedButton href="/pages/contact" variant="outline">
+              <AnimatedButton href="/contact" variant="outline">
                 Contact Me
               </AnimatedButton>
             </motion.div>
@@ -762,7 +762,7 @@ export default function Home() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Link
-                  href="/pages/projects"
+                  href="/projects"
                   className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition duration-300"
                 >
                   View All Projects
@@ -805,7 +805,7 @@ export default function Home() {
             transition={{ type: 'spring', stiffness: 400 }}
           >
             <Link
-              href="/pages/contact"
+              href="/contact"
               className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-primary/90 transition duration-300"
             >
               Get in Touch

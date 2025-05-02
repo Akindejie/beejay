@@ -1,24 +1,48 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Projects | Professional Portfolio',
-  description:
-    'Explore my portfolio of projects in technical support, software engineering, and graphic design',
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+// Animation variants
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      damping: 15,
+      stiffness: 100,
+    },
+  },
 };
 
 const projects = [
   {
-    id: 'ecommerce-platform',
-    title: 'E-Commerce Platform',
+    id: 'real-estate-management-system',
+    title: 'Real Estate Management System',
     category: 'Software Engineering',
     description:
-      'A full-stack e-commerce solution with advanced inventory management and integrated payment processing.',
+      'A full-stack real estate solution with advanced inventory management and integrated payment processing.',
     detailedDescription:
-      'Developed a comprehensive e-commerce platform that includes product catalog management, inventory tracking, user authentication, shopping cart functionality, secure payment processing, and order management. The platform features a responsive design optimized for all devices and integration with popular payment gateways.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe API'],
-    imageUrl: '/project-ecommerce.jpg',
+      'Bolibrorealty.com offers a complete solution for your real estate needs. Explore our meticulously managed property catalog with accurate inventory, create a secure user account to save your searches, and connect effortlessly with real estate professionals.',
+    technologies: ['Nextjs', 'Node.js', 'Supabase', 'Express', 'Stripe API'],
+    imageUrl: '/project-images/bolibrorealty.png',
     bgColor: 'from-blue-500 to-indigo-600',
     icon: (
       <svg
@@ -36,8 +60,8 @@ const projects = [
         />
       </svg>
     ),
-    year: '2022',
-    client: 'RetailTech Inc.',
+    year: '2025',
+    client: 'Bolibro Real Estate',
   },
   {
     id: 'task-management-app',
@@ -215,12 +239,6 @@ const projects = [
   },
 ];
 
-// Filter function for filtering projects by category
-const filterProjects = (category: string) => {
-  if (category === 'All') return projects;
-  return projects.filter((project) => project.category === category);
-};
-
 export default function Projects() {
   const categories = [
     'All',
@@ -230,41 +248,64 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-gray-900 text-white py-20">
+      <section className="bg-secondary dark:bg-gray-900 text-foreground py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            className="max-w-3xl mx-auto text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.6 }}
+          >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">My Projects</h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-secondary-foreground">
               A showcase of my work across different domains and technologies
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Categories - Note: Client-side filtering will be implemented separately */}
-            <div className="mb-12 flex flex-wrap justify-center gap-2">
-              {categories.map((category) => (
-                <span
+            <motion.div
+              className="mb-12 flex flex-wrap justify-center gap-2"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              {categories.map((category, index) => (
+                <motion.span
                   key={category}
-                  className="px-4 py-2 rounded-full bg-gray-200 text-gray-800 cursor-pointer hover:bg-indigo-600 hover:text-white transition duration-300"
+                  variants={fadeInUp}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-2 rounded-full bg-secondary dark:bg-gray-800 text-foreground cursor-pointer hover:bg-primary hover:text-primary-foreground transition duration-300"
                 >
                   {category}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
 
             {/* Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => (
-                <div
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              {projects.map((project, index) => (
+                <motion.div
                   key={project.id}
-                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                  variants={fadeInUp}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="bg-card dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   {/* Project Image/Icon Area */}
                   <div
@@ -275,77 +316,111 @@ export default function Projects() {
 
                   <div className="p-6">
                     <div className="mb-2">
-                      <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">
+                      <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-gray-600 mb-4">{project.description}</p>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">
+                      {project.title}
+                    </h3>
+                    <p className="text-secondary-foreground mb-4">
+                      {project.description}
+                    </p>
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.slice(0, 3).map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm"
+                          className="px-3 py-1 bg-secondary dark:bg-gray-700 text-secondary-foreground rounded-full text-sm"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">
+                        <span className="px-3 py-1 bg-secondary dark:bg-gray-700 text-secondary-foreground rounded-full text-sm">
                           +{project.technologies.length - 3} more
                         </span>
                       )}
                     </div>
 
                     {/* Project Details */}
-                    <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                    <div className="bg-secondary/50 dark:bg-gray-700/50 p-4 rounded-lg mb-4">
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm text-gray-500">Year</span>
-                        <span className="text-sm font-medium">
+                        <span className="text-sm text-secondary-foreground/70">
+                          Year
+                        </span>
+                        <span className="text-sm font-medium text-foreground">
                           {project.year}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-gray-500">Client</span>
-                        <span className="text-sm font-medium">
+                        <span className="text-sm text-secondary-foreground/70">
+                          Client
+                        </span>
+                        <span className="text-sm font-medium text-foreground">
                           {project.client}
                         </span>
                       </div>
                     </div>
 
                     {/* Detailed Description */}
-                    <p className="text-gray-600 mb-4 text-sm line-clamp-3">
+                    <p className="text-secondary-foreground mb-4 text-sm line-clamp-3">
                       {project.detailedDescription}
                     </p>
 
                     {/* View Project button would typically link to a detailed project page */}
-                    <button className="text-indigo-600 font-medium hover:text-indigo-800 transition-colors">
+                    <motion.button
+                      className="text-primary font-medium hover:text-primary/80 transition-colors"
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.97 }}
+                    >
                       View Project Details →
-                    </button>
+                    </motion.button>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Have a project in mind?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's collaborate to bring your ideas to life with innovative
-            solutions
-          </p>
-          <Link
-            href="/pages/contact"
-            className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-100 transition duration-300"
+      <section className="py-16 relative overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url("/about-me-background.jpeg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'brightness(0.7)',
+          }}
+        />
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
           >
-            Start a Conversation
-          </Link>
+            <h2 className="text-3xl font-bold mb-6 text-white">
+              Have a project in mind?
+            </h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
+              Let&apos;s collaborate to bring your ideas to life with innovative
+              solutions
+            </p>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/contact"
+                className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-100 transition duration-300"
+              >
+                Start a Conversation
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>

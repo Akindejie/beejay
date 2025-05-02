@@ -1,12 +1,36 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 // Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      damping: 15,
+      stiffness: 100,
+    },
+  },
 };
 
 export default function About() {
@@ -36,53 +60,94 @@ export default function About() {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <motion.div
               className="md:w-1/3"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
+              initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{
+                duration: 0.8,
+                type: 'spring',
+                damping: 15,
+              }}
+              whileHover={{
+                scale: 1.05,
+                rotate: 2,
+                transition: { duration: 0.3 },
+              }}
             >
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden mx-auto">
-                {/* Placeholder for profile image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                  <span className="text-6xl">👨‍💻</span>
-                </div>
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden mx-auto shadow-xl">
+                <Image
+                  src="/about-me-photo.png"
+                  alt="Lasisi Fuadeen"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="rounded-xl"
+                  priority
+                />
+                <motion.div
+                  className="absolute inset-0 bg-primary/10 dark:bg-primary/20"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  whileHover={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
               </div>
             </motion.div>
             <motion.div
               className="md:w-2/3"
               initial="hidden"
               animate="visible"
-              variants={fadeIn}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              variants={staggerContainer}
             >
-              <h2 className="text-3xl font-bold mb-6 text-foreground">
+              <motion.h2
+                className="text-3xl font-bold mb-6 text-foreground"
+                variants={fadeInUp}
+              >
                 Lasisi Fuadeen
-              </h2>
-              <p className="text-secondary-foreground text-lg mb-6">
+              </motion.h2>
+
+              <motion.p
+                className="text-secondary-foreground text-lg mb-6"
+                variants={fadeInUp}
+              >
                 I&apos;m a versatile professional with over 8 years of
                 experience spanning technical support, software engineering, and
                 graphic design. I specialize in creating user-centered solutions
                 that combine technical excellence with visual appeal.
-              </p>
-              <p className="text-secondary-foreground text-lg mb-6">
+              </motion.p>
+
+              <motion.p
+                className="text-secondary-foreground text-lg mb-6"
+                variants={fadeInUp}
+              >
                 My journey began in technical support, where I developed strong
                 problem-solving abilities and client communication skills. This
                 foundation led me to expand into software development, where I
                 enjoy building elegant solutions to complex problems. My
                 background in graphic design allows me to approach projects with
                 both technical precision and creative vision.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/pages/contact" className="btn btn-primary">
-                  Contact Me
-                </Link>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  className="btn btn-outline"
+              </motion.p>
+
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4"
+                variants={fadeInUp}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Download Resume
-                </a>
-              </div>
+                  <Link href="/contact" className="btn btn-primary">
+                    Contact Me
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a href="/resume.pdf" download className="btn btn-outline">
+                    Download Resume
+                  </a>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -542,7 +607,7 @@ export default function About() {
               Let&apos;s discuss how I can contribute to your next project
             </p>
             <Link
-              href="/pages/contact"
+              href="/contact"
               className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-100 transition duration-300"
             >
               Get in Touch

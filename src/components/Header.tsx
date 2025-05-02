@@ -26,9 +26,9 @@ const Header = () => {
   // Define navigation links
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/pages/about', label: 'About' },
-    { href: '/pages/projects', label: 'Work' }, // Changed label to match reference
-    { href: '/pages/contact', label: 'Contact' }, // Added Contact
+    { href: '/about', label: 'About' },
+    { href: '/projects', label: 'Work' },
+    { href: '/contact', label: 'Contact' },
     // Add other links like Services if needed
   ];
 
@@ -92,12 +92,6 @@ const Header = () => {
               </Link>
             );
           })}
-          {/* Optional: Add an arrow/special link like the reference */}
-          {/* 
-          <Link href="/some-other-page" className="text-gray-400 hover:text-white flex items-center pl-2">
-            Special Link <span className="ml-1">→</span>
-          </Link> 
-          */}
         </div>
 
         {/* Right side items (Toggle and Banner when scrolled) */}

@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
           <div className="mt-6 md:mt-0">
             <Link
-              href="/pages/contact"
+              href="/contact"
               className="inline-flex items-center gap-2 text-lg font-medium text-foreground hover:text-primary transition-colors group"
             >
               <span className="border-b-2 border-transparent group-hover:border-primary transition-all duration-300">
@@ -105,7 +105,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/pages/about"
+                  href="/about"
                   className="text-foreground/70 hover:text-foreground transition-colors"
                 >
                   About Me
@@ -113,7 +113,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/pages/projects"
+                  href="/projects"
                   className="text-foreground/70 hover:text-foreground transition-colors"
                 >
                   Projects
@@ -121,7 +121,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/pages/contact"
+                  href="/contact"
                   className="text-foreground/70 hover:text-foreground transition-colors"
                 >
                   Contact
