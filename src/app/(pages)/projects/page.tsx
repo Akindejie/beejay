@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 // Animation variants
 const fadeIn = {
@@ -42,7 +43,7 @@ const projects = [
     detailedDescription:
       'Bolibrorealty.com offers a complete solution for your real estate needs. Explore our meticulously managed property catalog with accurate inventory, create a secure user account to save your searches, and connect effortlessly with real estate professionals.',
     technologies: ['Nextjs', 'Node.js', 'Supabase', 'Express', 'Stripe API'],
-    imageUrl: '/project-images/bolibrorealty.png',
+    imageUrl: '/project-images/bolibro.png',
     bgColor: 'from-blue-500 to-indigo-600',
     icon: (
       <svg
@@ -62,7 +63,9 @@ const projects = [
     ),
     year: '2025',
     client: 'Bolibro Real Estate',
+    projectUrl: 'https://www.bolibrorealty.com/',
   },
+
   {
     id: 'task-management-app',
     title: 'Task Management App',
@@ -73,12 +76,13 @@ const projects = [
       'Built a task management application that allows team members to create, assign, and track tasks in real-time. Features include customizable project boards, comment threads, file attachments, deadline notifications, and progress reporting. The app integrates with calendar applications and provides analytics on team productivity.',
     technologies: [
       'Next.js',
+      'AI Intergration',
       'Firebase',
       'TypeScript',
       'Tailwind CSS',
       'Auth0',
     ],
-    imageUrl: '/project-task-app.jpg',
+    imageUrl: '/project-images/zenadmin.png',
     bgColor: 'from-green-500 to-teal-600',
     icon: (
       <svg
@@ -96,25 +100,32 @@ const projects = [
         />
       </svg>
     ),
-    year: '2021',
-    client: 'Agile Solutions LLC',
+    year: '2020',
+    client: 'Zen Admin',
+    projectUrl: 'https://www.zenadmin.ai/',
   },
+
   {
-    id: 'brand-identity-design',
-    title: 'Brand Identity Design',
-    category: 'Graphic Design',
+    id: 'software-development-company',
+    title: 'Software Development Company',
+    category: 'Software Engineering',
     description:
-      'A comprehensive brand identity project including logo design, color palette, and marketing materials.',
+      'A comprehensive software development company that provides a range of services including web development, mobile app development, and software consulting.',
     detailedDescription:
-      'Created a complete brand identity package for a technology startup. The project included logo design with variations for different applications, a comprehensive color palette with primary and secondary colors, typography guidelines, business card designs, letterhead templates, email signatures, social media assets, and a detailed brand guidelines document.',
+      'Created a complete software development company that provides a range of services including web development, mobile app development, and software consulting.',
     technologies: [
-      'Adobe Illustrator',
-      'Adobe Photoshop',
-      'Adobe InDesign',
+      'Next.js',
+      'Node.js',
+      'Supabase',
+      'Tailwind CSS',
+      'Auth0',
+      'AWS',
+      'Express',
+      'Stripe API',
       'Branding',
       'Typography',
     ],
-    imageUrl: '/project-brand-identity.jpg',
+    imageUrl: '/project-images/leophoenix-tech.png',
     bgColor: 'from-purple-500 to-pink-600',
     icon: (
       <svg
@@ -132,25 +143,32 @@ const projects = [
         />
       </svg>
     ),
-    year: '2020',
-    client: 'TechStart Innovations',
+    year: '2021',
+    client: 'Leo Phoenix',
+    projectUrl: 'https://leophoenix.tech/',
   },
+
   {
-    id: 'network-infrastructure',
-    title: 'Network Infrastructure Overhaul',
-    category: 'Technical Support',
+    id: 'health-care-platform',
+    title: 'Health Care Platform',
+    category: 'Software Engineering',
     description:
-      'Complete redesign and implementation of network infrastructure for a medium-sized business.',
+      'Complete redesign and implementation of healthcare infrastructure for a medium-sized business.',
     detailedDescription:
-      'Led a comprehensive network infrastructure upgrade project for a company with 120 employees across multiple departments. Designed the network topology, implemented VLANs for improved security, established redundant internet connections, configured firewalls and network monitoring tools, and documented the entire network architecture for future maintenance.',
+      'Bryan Healthcare is a leading UK-based healthcare provider specializing in neurological rehabilitation, elderly care, mental health services. The website offers a detailed exploration of our specialized services, highlighting our evidence-based practices, the expertise of our multidisciplinary team, and our commitment to patient-centered care.',
     technologies: [
-      'Network Architecture',
-      'Cisco Equipment',
-      'VLANs',
-      'Cybersecurity',
-      'Network Monitoring',
+      'Next.js',
+      'Node.js',
+      'SQL',
+      'SCSS',
+      'Auth0',
+      'AWS',
+      'Express',
+      'Stripe API',
+      'Branding',
+      'Typography',
     ],
-    imageUrl: '/project-network.jpg',
+    imageUrl: '/project-images/bryan-healthcare.png',
     bgColor: 'from-red-500 to-orange-600',
     icon: (
       <svg
@@ -168,19 +186,20 @@ const projects = [
         />
       </svg>
     ),
-    year: '2019',
-    client: 'Global Manufacturing Co.',
+    year: '2020',
+    client: 'Bryan Healthcare',
+    projectUrl: 'https://www.bryanhealthcare.co.uk/',
   },
+
   {
-    id: 'analytics-dashboard',
-    title: 'Analytics Dashboard',
+    id: 'custom-website-design',
+    title: 'Custom Website Design',
     category: 'Software Engineering',
-    description:
-      'Interactive data visualization dashboard for tracking business metrics and making data-driven decisions.',
+    description: 'Custom website design for a startup business.',
     detailedDescription:
       'Developed a customizable analytics dashboard that integrates with multiple data sources to provide comprehensive business intelligence. The dashboard features real-time data updates, interactive charts and graphs, filtering capabilities, data export options, and customizable reporting. The solution helps executives track KPIs and make informed business decisions.',
-    technologies: ['React', 'D3.js', 'Node.js', 'GraphQL', 'PostgreSQL'],
-    imageUrl: '/project-analytics.jpg',
+    technologies: ['React', 'CSS', 'Node.js', 'GraphQL', 'PostgreSQL'],
+    imageUrl: '/project-images/websie.png',
     bgColor: 'from-cyan-500 to-blue-600',
     icon: (
       <svg
@@ -198,25 +217,32 @@ const projects = [
         />
       </svg>
     ),
-    year: '2021',
-    client: 'DataMetrics Corp.',
+    year: '2020',
+    client: 'Websie',
+    projectUrl: 'https://websie.org/',
   },
+
   {
-    id: 'mobile-app-ui',
-    title: 'Mobile App UI/UX Design',
+    id: 'mobile-and-web-ui',
+    title: 'Mobile and Web UI/UX Design',
     category: 'Graphic Design',
     description:
-      'Complete UI/UX design for a fitness tracking mobile application with an emphasis on user experience.',
+      'Complete UI/UX design for various mobile and web applications with an emphasis on user experience.',
     detailedDescription:
-      'Designed the complete user interface and experience for a fitness tracking mobile application. Created wireframes, high-fidelity mockups, interactive prototypes, and a comprehensive design system. The design focused on intuitive navigation, clear data visualization, and engaging fitness tracking features that motivated users to maintain their exercise routines.',
+      'Designed the complete user interface and experience for various mobile and web applications with an emphasis on user experience.',
     technologies: [
       'Figma',
       'UI/UX Design',
       'Prototyping',
+      'Adobe Photoshop',
+      'Adobe Illustrator',
+      'Adobe XD',
+      'Adobe InDesign',
+      'Adobe After Effects',
       'User Research',
       'Design Systems',
     ],
-    imageUrl: '/project-mobile-ui.jpg',
+    imageUrl: '/project-images/dribbble.png',
     bgColor: 'from-indigo-500 to-violet-600',
     icon: (
       <svg
@@ -234,8 +260,9 @@ const projects = [
         />
       </svg>
     ),
-    year: '2022',
-    client: 'FitTech Solutions',
+    year: '2018',
+    client: 'Dribbble',
+    projectUrl: 'https://dribbble.com/akindejie',
   },
 ];
 
@@ -307,11 +334,15 @@ export default function Projects() {
                   whileHover={{ y: -10 }}
                   className="bg-card dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  {/* Project Image/Icon Area */}
-                  <div
-                    className={`h-48 bg-gradient-to-r ${project.bgColor} flex items-center justify-center`}
-                  >
-                    {project.icon}
+                  {/* Project Image Area */}
+                  <div className="h-48 relative overflow-hidden">
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      className="transition-transform duration-300 hover:scale-105"
+                    />
                   </div>
 
                   <div className="p-6">
@@ -369,14 +400,17 @@ export default function Projects() {
                       {project.detailedDescription}
                     </p>
 
-                    {/* View Project button would typically link to a detailed project page */}
-                    <motion.button
-                      className="text-primary font-medium hover:text-primary/80 transition-colors"
+                    {/* View Project button linking to external project URL */}
+                    <motion.a
+                      href={project.projectUrl || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary font-medium hover:text-primary/80 transition-colors inline-flex items-center"
                       whileHover={{ x: 5 }}
                       whileTap={{ scale: 0.97 }}
                     >
-                      View Project Details →
-                    </motion.button>
+                      View Project Online →
+                    </motion.a>
                   </div>
                 </motion.div>
               ))}
