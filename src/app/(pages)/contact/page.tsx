@@ -1,68 +1,138 @@
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Contact | Professional Portfolio',
-  description:
-    'Get in touch with me for inquiries, collaborations, or project discussions',
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+// Animation variants
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      damping: 15,
+      stiffness: 100,
+    },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 export default function Contact() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Hero Section */}
-      <section className="bg-gray-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-secondary dark:bg-gray-900 text-foreground py-20 relative overflow-hidden">
+        {/* Gradient effect - top */}
+        <motion.div
+          className="absolute -top-20 -left-20 w-96 h-96 bg-primary opacity-30 rounded-full blur-3xl z-0 dark:opacity-20"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 0.3, scale: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="max-w-3xl mx-auto text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.6 }}
+          >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Me</h1>
-            <p className="text-xl text-gray-300">
-              Let's discuss how I can help with your next project
+            <p className="text-xl text-secondary-foreground dark:text-gray-300">
+              Let&apos;s discuss how I can help with your next project
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
+      <section className="py-20 relative">
+        {/* Gradient effect - bottom right */}
+        <motion.div
+          className="absolute rounded-full z-0"
+          style={{
+            bottom: '80px',
+            right: '80px',
+            width: '400px',
+            height: '400px',
+            background: `conic-gradient(from 45deg, var(--accent) 0%, var(--accent) 10%, transparent 10%, transparent 20%, #a855f7 20%, #a855f7 30%, transparent 30%, transparent 40%, #f3e8ff 40%, #f3e8ff 50%, transparent 50%)`,
+            filter: 'blur(40px)',
+          }}
+          initial={{ opacity: 0, rotate: -30 }}
+          animate={{ opacity: 0.2, rotate: 0 }}
+          transition={{ duration: 1.5 }}
+          data-dark-style="opacity:0.2; background: conic-gradient(from 45deg, #6366f1 0%, #6366f1 10%, transparent 10%, transparent 20%, #a5b4fc 20%, #a5b4fc 30%, transparent 30%, transparent 40%, #e0e7ff 40%, #e0e7ff 50%);"
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="max-w-5xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div>
-                <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+              <motion.div variants={fadeInUp}>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  Send a Message
+                </h2>
 
                 <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-gray-700 mb-2">
+                  <motion.div variants={fadeInUp} transition={{ delay: 0.1 }}>
+                    <label
+                      htmlFor="name"
+                      className="block text-foreground/80 dark:text-gray-300 mb-2"
+                    >
                       Name
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Your name"
                       required
                     />
-                  </div>
+                  </motion.div>
 
-                  <div>
-                    <label htmlFor="email" className="block text-gray-700 mb-2">
+                  <motion.div variants={fadeInUp} transition={{ delay: 0.2 }}>
+                    <label
+                      htmlFor="email"
+                      className="block text-foreground/80 dark:text-gray-300 mb-2"
+                    >
                       Email
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Your email address"
                       required
                     />
-                  </div>
+                  </motion.div>
 
-                  <div>
+                  <motion.div variants={fadeInUp} transition={{ delay: 0.3 }}>
                     <label
                       htmlFor="subject"
-                      className="block text-gray-700 mb-2"
+                      className="block text-foreground/80 dark:text-gray-300 mb-2"
                     >
                       Subject
                     </label>
@@ -70,16 +140,16 @@ export default function Contact() {
                       type="text"
                       id="subject"
                       name="subject"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Message subject"
                       required
                     />
-                  </div>
+                  </motion.div>
 
-                  <div>
+                  <motion.div variants={fadeInUp} transition={{ delay: 0.4 }}>
                     <label
                       htmlFor="message"
-                      className="block text-gray-700 mb-2"
+                      className="block text-foreground/80 dark:text-gray-300 mb-2"
                     >
                       Message
                     </label>
@@ -87,31 +157,41 @@ export default function Contact() {
                       id="message"
                       name="message"
                       rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-colors"
+                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Your message"
                       required
                     ></textarea>
-                  </div>
+                  </motion.div>
 
-                  <button
-                    type="submit"
-                    className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition duration-300 w-full md:w-auto"
-                  >
-                    Send Message
-                  </button>
+                  <motion.div variants={fadeInUp} transition={{ delay: 0.5 }}>
+                    <motion.button
+                      type="submit"
+                      className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition duration-300 w-full md:w-auto"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Send Message
+                    </motion.button>
+                  </motion.div>
                 </form>
-              </div>
+              </motion.div>
 
               {/* Contact Information */}
-              <div>
-                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <motion.div variants={fadeInUp} transition={{ delay: 0.3 }}>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  Contact Information
+                </h2>
 
                 <div className="space-y-8">
-                  <div className="flex items-start">
-                    <div className="bg-indigo-100 p-3 rounded-lg mr-4">
+                  <motion.div
+                    className="flex items-start"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-lg mr-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-indigo-600"
+                        className="h-6 w-6 text-primary"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -125,19 +205,27 @@ export default function Contact() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1">Email</h3>
-                      <p className="text-gray-600">john.doe@example.com</p>
-                      <p className="text-gray-500 text-sm mt-1">
+                      <h3 className="text-lg font-semibold mb-1 text-foreground">
+                        Email
+                      </h3>
+                      <p className="text-foreground/70 dark:text-gray-400">
+                        akindejifuddi@gmail.com
+                      </p>
+                      <p className="text-foreground/50 dark:text-gray-500 text-sm mt-1">
                         I typically respond within 24 hours
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-start">
-                    <div className="bg-indigo-100 p-3 rounded-lg mr-4">
+                  <motion.div
+                    className="flex items-start"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-lg mr-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-indigo-600"
+                        className="h-6 w-6 text-primary"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -151,19 +239,27 @@ export default function Contact() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1">Phone</h3>
-                      <p className="text-gray-600">+1 (555) 123-4567</p>
-                      <p className="text-gray-500 text-sm mt-1">
+                      <h3 className="text-lg font-semibold mb-1 text-foreground">
+                        Phone
+                      </h3>
+                      <p className="text-foreground/70 dark:text-gray-400">
+                        +234 813 185 2425
+                      </p>
+                      <p className="text-foreground/50 dark:text-gray-500 text-sm mt-1">
                         Available Monday-Friday, 9am-5pm EST
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-start">
-                    <div className="bg-indigo-100 p-3 rounded-lg mr-4">
+                  <motion.div
+                    className="flex items-start"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-lg mr-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-indigo-600"
+                        className="h-6 w-6 text-primary"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -183,26 +279,32 @@ export default function Contact() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1">Location</h3>
-                      <p className="text-gray-600">San Francisco, CA</p>
-                      <p className="text-gray-500 text-sm mt-1">
+                      <h3 className="text-lg font-semibold mb-1 text-foreground">
+                        Location
+                      </h3>
+                      <p className="text-foreground/70 dark:text-gray-400">
+                        Lagos, Nigeria
+                      </p>
+                      <p className="text-foreground/50 dark:text-gray-500 text-sm mt-1">
                         Available for remote work worldwide
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="mt-10">
-                  <h3 className="text-lg font-semibold mb-4">
+                  <h3 className="text-lg font-semibold mb-4 text-foreground">
                     Connect with me
                   </h3>
                   <div className="flex space-x-4">
-                    <a
-                      href="https://github.com"
+                    <motion.a
+                      href="https://github.com/Akindejie"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors"
+                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
                       aria-label="GitHub"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -212,13 +314,15 @@ export default function Contact() {
                       >
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                       </svg>
-                    </a>
-                    <a
-                      href="https://linkedin.com"
+                    </motion.a>
+                    <motion.a
+                      href="https://www.linkedin.com/in/akindejie/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors"
+                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
                       aria-label="LinkedIn"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -228,13 +332,15 @@ export default function Contact() {
                       >
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                       </svg>
-                    </a>
-                    <a
-                      href="https://twitter.com"
+                    </motion.a>
+                    <motion.a
+                      href="https://x.com/Akindejie"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition-colors"
+                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
                       aria-label="Twitter"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -244,13 +350,15 @@ export default function Contact() {
                       >
                         <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                       </svg>
-                    </a>
-                    <a
-                      href="https://dribbble.com"
+                    </motion.a>
+                    <motion.a
+                      href="https://dribbble.com/akindejie"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-pink-500 text-white p-3 rounded-full hover:bg-pink-600 transition-colors"
+                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
                       aria-label="Dribbble"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -258,76 +366,45 @@ export default function Contact() {
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        <path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-6.953.666-9.641-1.433zm11.586.43c-.438-2.353-1.08-4.653-1.92-6.897 1.876-.265 3.94-.196 6.199.196-.437 2.786-2.028 5.192-4.279 6.701z" />
+                        <path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073a42.153 42.153 0 00-.767-1.68c2.31-1 4.165-2.358 5.548-4.082a9.863 9.863 0 012.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68a46.287 46.287 0 00-3.488-5.438A9.894 9.894 0 0112 2.087c2.275 0 4.368.779 6.043 2.072zM7.527 3.166a44.59 44.59 0 013.537 5.381c-2.43.715-5.331 1.082-8.684 1.105a9.931 9.931 0 015.147-6.486zM2.087 12l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48A9.865 9.865 0 012.087 12zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027a39.137 39.137 0 012.043 7.46c-3.349 1.291-6.953.666-9.641-1.433zm11.586.43a41.098 41.098 0 00-1.92-6.897c1.876-.265 3.94-.196 6.199.196a9.93 9.93 0 01-4.279 6.701z" />
                       </svg>
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Frequently Asked Questions
+      {/* CTA Section */}
+      <section className="py-16 relative overflow-hidden bg-secondary dark:bg-gray-900">
+        <motion.div
+          className="container mx-auto px-4 text-center relative z-10"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold mb-6 text-foreground dark:text-white">
+            Ready to start a project?
           </h2>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3">
-                What services do you offer?
-              </h3>
-              <p className="text-gray-600">
-                I provide a range of services including technical support and
-                troubleshooting, full-stack software development, responsive web
-                design, UI/UX design, and graphic design services including
-                brand identity development.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3">
-                What is your typical process for new projects?
-              </h3>
-              <p className="text-gray-600">
-                My process typically begins with an initial consultation to
-                understand your needs and goals. From there, I develop a
-                proposal outlining scope, timeline, and cost. Once approved, I
-                move into the design/development phase with regular check-ins
-                and feedback sessions, followed by testing and deployment.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3">
-                How do you determine project pricing?
-              </h3>
-              <p className="text-gray-600">
-                Project pricing is based on several factors including project
-                complexity, timeline requirements, scope of work, and the level
-                of expertise required. I offer both hourly rates and fixed
-                project fees depending on your needs. Contact me for a custom
-                quote based on your specific project requirements.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3">
-                Are you available for long-term contracts?
-              </h3>
-              <p className="text-gray-600">
-                Yes, I am available for both short-term projects and longer-term
-                contracts. For ongoing work, I can offer retainer agreements
-                with dedicated hours each month to ensure consistent
-                availability for your needs.
-              </p>
-            </div>
-          </div>
-        </div>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-foreground/80 dark:text-gray-300">
+            I&apos;m excited to hear about your ideas and how we can collaborate
+          </p>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400 }}
+          >
+            <Link
+              href="/projects"
+              className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-primary/90 transition duration-300"
+            >
+              View My Projects
+            </Link>
+          </motion.div>
+        </motion.div>
       </section>
     </div>
   );
