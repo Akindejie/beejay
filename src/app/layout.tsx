@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   title: 'Akindejie Portfolio',
   description:
     'Portfolio website featuring expertise in technical support, software engineering, and graphic design',
+  icons: {
+    icon: '/akindejie-icon.svg',
+    apple: '/akindejie-icon.svg',
+    shortcut: '/akindejie-icon.svg',
+  },
 };
 
 export default function RootLayout({

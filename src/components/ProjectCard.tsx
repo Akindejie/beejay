@@ -111,17 +111,17 @@ export default function ProjectCard({
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </motion.div>
-            <motion.div
+        <motion.div
               className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100"
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
+          transition={{ duration: 0.3 }}
+        />
           </motion.div>
         ) : (
           <div className="w-full h-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-            <span className="text-4xl text-primary-foreground">{title}</span>
-          </div>
+          <span className="text-4xl text-primary-foreground">{title}</span>
+        </div>
         )}
       </div>
       <motion.div

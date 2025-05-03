@@ -280,7 +280,7 @@ export default function Projects() {
       <section
         className="relative bg-secondary dark:bg-gray-900 text-foreground py-20"
         style={{
-          backgroundImage: 'url(/background-cover-down.jpg)',
+          backgroundImage: 'url(/project-images/background-cover-down.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -437,7 +437,7 @@ export default function Projects() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/about-me-background.jpeg")',
+            backgroundImage: 'url("/project-images/about-me-background.jpeg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'brightness(0.7)',

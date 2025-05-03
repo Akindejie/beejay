@@ -392,14 +392,14 @@
 
 /* Dark mode profile avatar with black-me.png */
 html.dark #profile-avatar {
-  background-image: url('/black-me.png');
+  background-image: url('/project-images/black-me.png');
   background-size: cover;
   background-position: center;
 }
 
 /* Light mode profile avatar with white-me.png */
 #profile-avatar {
-  background-image: url('/white-me.png');
+  background-image: url('/project-images/white-me.png');
   background-size: cover;
   background-position: center;
 }

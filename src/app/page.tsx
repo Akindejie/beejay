@@ -777,7 +777,7 @@ export default function Home() {
       <section className="py-20 relative bg-black text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/ready-background.png"
+            src="/project-images/ready-background.png"
             alt="Background"
             fill
             className="object-cover opacity-90 dark:opacity-70"

@@ -40,7 +40,7 @@ export default function About() {
       <section
         className="relative bg-secondary dark:bg-gray-900 text-foreground py-20"
         style={{
-          backgroundImage: 'url(/background-cover-up.jpg)',
+          backgroundImage: 'url(/project-images/background-cover-up.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -87,7 +87,7 @@ export default function About() {
             >
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden mx-auto shadow-xl">
                 <Image
-                  src="/about-me-photo.png"
+                  src="/project-images/about-me-photo.png"
                   alt="Lasisi Fuadeen"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -602,7 +602,7 @@ export default function About() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/about-me-background.jpeg")',
+            backgroundImage: 'url("/project-images/about-me-background.jpeg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'brightness(0.7)',
