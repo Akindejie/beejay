@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Professional Portfolio',
+  title: 'Akindejie Portfolio',
   description:
     'Portfolio website featuring expertise in technical support, software engineering, and graphic design',
 };
