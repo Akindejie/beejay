@@ -168,7 +168,7 @@ export default function Home() {
               delay={0.1}
             >
               <motion.div
-                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-opacity-50 dark:backdrop-blur-md"
+                className="bg-card/30 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-card/40 dark:backdrop-blur-md"
                 whileHover={{
                   y: -10,
                   boxShadow:
@@ -350,7 +350,7 @@ export default function Home() {
               delay={0.3}
             >
               <motion.div
-                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-opacity-50 dark:backdrop-blur-md"
+                className="bg-card/30 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-card/40 dark:backdrop-blur-md"
                 whileHover={{
                   y: -10,
                   boxShadow:
@@ -531,7 +531,7 @@ export default function Home() {
               delay={0.5}
             >
               <motion.div
-                className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-opacity-50 dark:backdrop-blur-md"
+                className="bg-card/30 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow dark:bg-card/40 dark:backdrop-blur-md"
                 whileHover={{
                   y: -10,
                   boxShadow:

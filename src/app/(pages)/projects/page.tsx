@@ -277,8 +277,18 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-secondary dark:bg-gray-900 text-foreground py-20">
-        <div className="container mx-auto px-4">
+      <section
+        className="relative bg-secondary dark:bg-gray-900 text-foreground py-20"
+        style={{
+          backgroundImage: 'url(/background-cover-down.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="max-w-3xl mx-auto text-center"
             initial="hidden"
@@ -286,8 +296,10 @@ export default function Projects() {
             variants={fadeIn}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">My Projects</h1>
-            <p className="text-xl text-secondary-foreground">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              My Projects
+            </h1>
+            <p className="text-xl text-white">
               A showcase of my work across different domains and technologies
             </p>
           </motion.div>

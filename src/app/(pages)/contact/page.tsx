@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState, FormEvent, ChangeEvent } from 'react';
 
 // Animation variants
 const fadeIn = {
@@ -32,19 +33,87 @@ const staggerContainer = {
   },
 };
 
+// Form interface
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export default function Contact() {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  // Handle input changes
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      // EmailJS configuration
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          to_email: 'akindejifuddi@gmail.com',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong. Please try again.');
+      }
+
+      // Success
+      setSubmitSuccess(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 5000);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error ? error.message : 'Something went wrong'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Hero Section */}
-      <section className="bg-secondary dark:bg-gray-900 text-foreground py-20 relative overflow-hidden">
-        {/* Gradient effect - top */}
-        <motion.div
-          className="absolute -top-20 -left-20 w-96 h-96 bg-primary opacity-30 rounded-full blur-3xl z-0 dark:opacity-20"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.3, scale: 1 }}
-          transition={{ duration: 1.5 }}
-        />
-
+      <section
+        className="bg-secondary dark:bg-gray-900 text-foreground py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: 'url(/contact-bkground.jpeg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -53,8 +122,10 @@ export default function Contact() {
             variants={fadeIn}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Me</h1>
-            <p className="text-xl text-secondary-foreground dark:text-gray-300">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Contact Me
+            </h1>
+            <p className="text-xl text-white">
               Let&apos;s discuss how I can help with your next project
             </p>
           </motion.div>
@@ -94,7 +165,7 @@ export default function Contact() {
                   Send a Message
                 </h2>
 
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <motion.div variants={fadeInUp} transition={{ delay: 0.1 }}>
                     <label
                       htmlFor="name"
@@ -106,6 +177,8 @@ export default function Contact() {
                       type="text"
                       id="name"
                       name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Your name"
                       required
@@ -123,6 +196,8 @@ export default function Contact() {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Your email address"
                       required
@@ -140,6 +215,8 @@ export default function Contact() {
                       type="text"
                       id="subject"
                       name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Message subject"
                       required
@@ -157,20 +234,45 @@ export default function Contact() {
                       id="message"
                       name="message"
                       rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
                       placeholder="Your message"
                       required
                     ></textarea>
                   </motion.div>
 
+                  {submitError && (
+                    <motion.div
+                      className="p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                    >
+                      {submitError}
+                    </motion.div>
+                  )}
+
+                  {submitSuccess && (
+                    <motion.div
+                      className="p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                    >
+                      Your message has been sent successfully!
+                    </motion.div>
+                  )}
+
                   <motion.div variants={fadeInUp} transition={{ delay: 0.5 }}>
                     <motion.button
                       type="submit"
-                      className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition duration-300 w-full md:w-auto"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      disabled={isSubmitting}
+                      className={`bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition duration-300 w-full md:w-auto ${
+                        isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                      }`}
+                      whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                      whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                     >
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </motion.button>
                   </motion.div>
                 </form>
@@ -378,7 +480,18 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 relative overflow-hidden bg-secondary dark:bg-gray-900">
+      <section
+        className="py-16 relative overflow-hidden bg-secondary dark:bg-gray-900"
+        style={{
+          backgroundImage: 'url(/contact-bkground2.jpeg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+
         <motion.div
           className="container mx-auto px-4 text-center relative z-10"
           initial={{ opacity: 0, y: 50 }}
@@ -386,10 +499,10 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-foreground dark:text-white">
+          <h2 className="text-3xl font-bold mb-6 text-white">
             Ready to start a project?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-foreground/80 dark:text-gray-300">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
             I&apos;m excited to hear about your ideas and how we can collaborate
           </p>
           <motion.div

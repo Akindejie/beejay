@@ -37,8 +37,18 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-secondary dark:bg-gray-900 text-foreground py-20">
-        <div className="container mx-auto px-4">
+      <section
+        className="relative bg-secondary dark:bg-gray-900 text-foreground py-20"
+        style={{
+          backgroundImage: 'url(/background-cover-up.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="max-w-3xl mx-auto text-center"
             initial="hidden"
@@ -46,8 +56,10 @@ export default function About() {
             variants={fadeIn}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
-            <p className="text-xl text-secondary-foreground">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              About Me
+            </h1>
+            <p className="text-xl text-white">
               Get to know my background, skills, and professional journey
             </p>
           </motion.div>
@@ -143,7 +155,11 @@ export default function About() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <a href="/resume.pdf" download className="btn btn-outline">
+                  <a
+                    href="/files/resume.pdf"
+                    download
+                    className="btn btn-outline"
+                  >
                     Download Resume
                   </a>
                 </motion.div>
@@ -316,7 +332,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Technical Support Skills */}
             <motion.div
-              className="bg-card p-8 rounded-lg shadow-md"
+              className="bg-transparent p-8 rounded-lg shadow-md"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -354,7 +370,7 @@ export default function About() {
                 </li>
                 <li className="flex items-center">
                   <div className="w-full bg-secondary dark:bg-gray-700 rounded-full h-2.5">
-                    <div className="bg-primary h-2.5 rounded-full w-[80%]"></div>
+                    <div className="bg-primary h-2.5 rounded-full w-[90%]"></div>
                   </div>
                   <span className="min-w-[100px] text-right ml-4 text-secondary-foreground">
                     Documentation
@@ -365,7 +381,7 @@ export default function About() {
 
             {/* Software Engineering Skills */}
             <motion.div
-              className="bg-card p-8 rounded-lg shadow-md"
+              className="bg-transparent p-8 rounded-lg shadow-md"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -379,7 +395,7 @@ export default function About() {
               <ul className="space-y-3">
                 <li className="flex items-center">
                   <div className="w-full bg-secondary dark:bg-gray-700 rounded-full h-2.5">
-                    <div className="bg-primary h-2.5 rounded-full w-[90%]"></div>
+                    <div className="bg-primary h-2.5 rounded-full w-[95%]"></div>
                   </div>
                   <span className="min-w-[100px] text-right ml-4 text-secondary-foreground">
                     JavaScript
@@ -387,7 +403,7 @@ export default function About() {
                 </li>
                 <li className="flex items-center">
                   <div className="w-full bg-secondary dark:bg-gray-700 rounded-full h-2.5">
-                    <div className="bg-primary h-2.5 rounded-full w-[85%]"></div>
+                    <div className="bg-primary h-2.5 rounded-full w-[99%]"></div>
                   </div>
                   <span className="min-w-[100px] text-right ml-4 text-secondary-foreground">
                     React/Next.js
@@ -395,7 +411,7 @@ export default function About() {
                 </li>
                 <li className="flex items-center">
                   <div className="w-full bg-secondary dark:bg-gray-700 rounded-full h-2.5">
-                    <div className="bg-primary h-2.5 rounded-full w-[80%]"></div>
+                    <div className="bg-primary h-2.5 rounded-full w-[90%]"></div>
                   </div>
                   <span className="min-w-[100px] text-right ml-4 text-secondary-foreground">
                     Node.js
@@ -403,7 +419,7 @@ export default function About() {
                 </li>
                 <li className="flex items-center">
                   <div className="w-full bg-secondary dark:bg-gray-700 rounded-full h-2.5">
-                    <div className="bg-primary h-2.5 rounded-full w-[75%]"></div>
+                    <div className="bg-primary h-2.5 rounded-full w-[85%]"></div>
                   </div>
                   <span className="min-w-[100px] text-right ml-4 text-secondary-foreground">
                     TypeScript
@@ -414,7 +430,7 @@ export default function About() {
 
             {/* Graphic Design Skills */}
             <motion.div
-              className="bg-card p-8 rounded-lg shadow-md"
+              className="bg-transparent p-8 rounded-lg shadow-md"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -444,7 +460,7 @@ export default function About() {
                 </li>
                 <li className="flex items-center">
                   <div className="w-full bg-secondary dark:bg-gray-700 rounded-full h-2.5">
-                    <div className="bg-primary h-2.5 rounded-full w-[80%]"></div>
+                    <div className="bg-primary h-2.5 rounded-full w-[85%]"></div>
                   </div>
                   <span className="min-w-[100px] text-right ml-4 text-secondary-foreground">
                     Branding
@@ -452,7 +468,7 @@ export default function About() {
                 </li>
                 <li className="flex items-center">
                   <div className="w-full bg-secondary dark:bg-gray-700 rounded-full h-2.5">
-                    <div className="bg-primary h-2.5 rounded-full w-[75%]"></div>
+                    <div className="bg-primary h-2.5 rounded-full w-[95%]"></div>
                   </div>
                   <span className="min-w-[100px] text-right ml-4 text-secondary-foreground">
                     Typography
@@ -480,7 +496,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Education */}
             <motion.div
-              className="bg-card p-8 rounded-lg shadow-md"
+              className="bg-transparent p-8 rounded-lg shadow-md"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -513,7 +529,7 @@ export default function About() {
 
             {/* Certifications */}
             <motion.div
-              className="bg-card p-8 rounded-lg shadow-md"
+              className="bg-transparent p-8 rounded-lg shadow-md"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}

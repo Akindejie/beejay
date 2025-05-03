@@ -93,7 +93,7 @@ export default function ProjectCard({
 
   return (
     <motion.div
-      className={`group bg-card rounded-lg overflow-hidden shadow-lg dark:bg-opacity-50 dark:backdrop-blur-md ${className}`}
+      className={`group bg-card/10 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg dark:bg-card/20 dark:backdrop-blur-md ${className}`}
       variants={cardVariants}
       initial="initial"
       animate="animate"
@@ -125,7 +125,7 @@ export default function ProjectCard({
         )}
       </div>
       <motion.div
-        className="p-6"
+        className="p-6 bg-transparent backdrop-blur-sm dark:bg-transparent dark:backdrop-blur-md"
         variants={contentVariants}
         initial="initial"
         animate="animate"
@@ -189,7 +189,7 @@ export default function ProjectCard({
             <strong className="inline-block">{developedBy}</strong>
           </motion.span>
           <motion.div
-            className="mt-4 text-xs bg-gray-100 dark:bg-gray-800 text-black rounded px-2 py-1 inline-block w-max opacity-0 group-hover:opacity-100"
+            className="mt-4 text-xs bg-gray-100/70 dark:bg-gray-800/60 text-black dark:text-white rounded px-2 py-1 inline-block w-max opacity-0 group-hover:opacity-100"
             initial={{ y: 10, opacity: 0 }}
             whileHover={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
