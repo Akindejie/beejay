@@ -106,7 +106,7 @@ export default function Contact() {
       <section
         className="bg-secondary dark:bg-gray-900 text-foreground py-20 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/contact-bkground.jpeg)',
+          backgroundImage: 'url(/project-images/background-cover-up.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -483,7 +483,7 @@ export default function Contact() {
       <section
         className="py-16 relative overflow-hidden bg-secondary dark:bg-gray-900"
         style={{
-          backgroundImage: 'url(/contact-bkground2.jpeg)',
+          backgroundImage: 'url(/project-images/background-cover-down.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

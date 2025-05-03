@@ -602,7 +602,7 @@ export default function About() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/project-images/about-me-background.jpeg")',
+            backgroundImage: 'url("/project-images/ready-background.png")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'brightness(0.7)',
