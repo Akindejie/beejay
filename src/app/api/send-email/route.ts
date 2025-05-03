@@ -13,11 +13,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Log for debugging (remove in production)
-    console.log('Environment variables check:');
-    console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER);
-    console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
-
     // Create a nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',

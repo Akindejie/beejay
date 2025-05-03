@@ -712,7 +712,7 @@ export default function Home() {
           <AnimateOnScroll>
             <div className="text-center mb-16">
               <p className="text-primary uppercase tracking-wider font-medium mb-3">
-                HAPPY CLIENTS &lt;3
+                HAPPY CLIENTS 😊
               </p>
               <h2 className="text-5xl md:text-7xl font-bold mb-4 text-foreground">
                 Recent Work

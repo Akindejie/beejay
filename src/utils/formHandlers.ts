@@ -63,19 +63,6 @@ export const submitContactForm = async (formData: ContactFormData) => {
   }
 
   try {
-    // This would be replaced with an actual API call
-    // For example:
-    // const response = await fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(formData),
-    // });
-    //
-    // const data = await response.json();
-    // return data;
-
     // Simulate API call with a delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
