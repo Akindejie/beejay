@@ -9,6 +9,7 @@
   --input-bg: #ffffff; /* White */
   --input-border: #d1d5db; /* Gray 300 */
   --primary: #4f46e5; /* Indigo 600 */
+  --primary-rgb: 79, 70, 229; /* RGB values for Indigo 600 */
   --primary-foreground: #ffffff; /* White */
   --secondary: #f3f4f6; /* Gray 100 */
   --secondary-foreground: #1f2937; /* Gray 800 */
@@ -37,6 +38,7 @@
   --input-bg: #1f2937; /* Gray 800 */
   --input-border: #4b5563; /* Gray 600 */
   --primary: #6366f1; /* Indigo 500 */
+  --primary-rgb: 99, 102, 241; /* RGB values for Indigo 500 */
   --primary-foreground: #ffffff; /* White */
   --secondary: #1f2937; /* Gray 800 */
   --secondary-foreground: #e5e7eb; /* Gray 200 */
