@@ -57,8 +57,16 @@ const ExperienceOrbit = () => {
 
   // Define skills with React Icons
   const skillsOrbit1 = [
-    { text: 'Next.js', icon: <SiNextdotjs />, position: 'top-[5%] left-[50%]' },
-    { text: 'React', icon: <SiReact />, position: 'top-[30%] left-[90%]' },
+    {
+      text: 'Next.js',
+      icon: <SiNextdotjs />,
+      position: 'top-[5%] left-[50%]',
+    },
+    {
+      text: 'React',
+      icon: <SiReact />,
+      position: 'top-[30%] left-[90%]',
+    },
     {
       text: 'TypeScript',
       icon: <SiTypescript />,
@@ -108,7 +116,7 @@ const ExperienceOrbit = () => {
       position: 'top-[35%] left-[15%]',
     },
     {
-      text: 'AI Integration',
+      text: 'LLM Integration',
       icon: <FaRobot />,
       position: 'top-[65%] left-[85%]',
     },
@@ -201,7 +209,8 @@ const ExperienceOrbit = () => {
             <div className="text-center">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-foreground">
                 EXPERIENCE IN <br />
-                TECHNICAL SOLUTIONS <br />& WEB DEVELOPMENT
+                TECHNICAL SOLUTIONS <br />
+                & WEB DEVELOPMENT
               </h2>
             </div>
           </div>

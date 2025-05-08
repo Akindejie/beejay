@@ -66,7 +66,7 @@ export default function Home() {
               variants={fadeInLeft}
               transition={{ duration: 0.7 }}
             >
-              Lasisi Fuadeen Akindeji
+              Lasisi Akindeji
             </motion.h1>
             <motion.h2
               className="text-lg md:text-2xl font-semibold text-primary-foreground/80 mb-6 tracking-wide"
@@ -95,7 +95,7 @@ export default function Home() {
               <AnimatedButton href="/projects" variant="secondary">
                 View Projects
               </AnimatedButton>
-              <AnimatedButton href="/contact" variant="outline">
+              <AnimatedButton href="/contact" variant="primary">
                 Contact Me
               </AnimatedButton>
             </motion.div>

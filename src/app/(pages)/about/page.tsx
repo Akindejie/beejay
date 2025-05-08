@@ -88,7 +88,7 @@ export default function About() {
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden mx-auto shadow-xl">
                 <Image
                   src="/project-images/about-me-photo.png"
-                  alt="Lasisi Fuadeen"
+                  alt="Lasisi Akindeji"
                   fill
                   style={{ objectFit: 'cover' }}
                   className="rounded-xl"

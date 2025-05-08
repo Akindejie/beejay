@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
             <h2 className="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-600">
-              Lasisi Fuadeen
+              Lasisi Akindeji
             </h2>
             <div className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
               <svg
@@ -217,7 +217,7 @@ const Footer = () => {
               © {currentYear}
               <span className="group-hover:text-primary transition-colors duration-300">
                 {' '}
-                Lasisi Fuadeen
+                Lasisi Akindeji
               </span>
               . All Rights Reserved.
             </p>
