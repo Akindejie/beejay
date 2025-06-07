@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTheme } from '@/context/ThemeContext';
 
 // Animation variants
 const fadeIn = {
@@ -267,6 +268,7 @@ const projects = [
 ];
 
 export default function Projects() {
+  const { theme } = useTheme();
   const categories = [
     'All',
     'Software Engineering',
@@ -287,7 +289,11 @@ export default function Projects() {
         }}
       >
         {/* Overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div
+          className={`absolute inset-0 ${
+            theme === 'light' ? 'bg-black opacity-60' : 'bg-black opacity-50'
+          }`}
+        ></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -307,7 +313,11 @@ export default function Projects() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 bg-background">
+      <section
+        className={`py-20 ${
+          theme === 'light' ? 'bg-gray-50' : 'bg-background'
+        }`}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Categories - Note: Client-side filtering will be implemented separately */}
@@ -324,7 +334,11 @@ export default function Projects() {
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 rounded-full bg-secondary dark:bg-gray-800 text-foreground cursor-pointer hover:bg-primary hover:text-primary-foreground transition duration-300"
+                  className={`px-4 py-2 rounded-full cursor-pointer transition duration-300 ${
+                    theme === 'light'
+                      ? 'bg-white border border-gray-200 text-gray-700 hover:bg-primary hover:text-white shadow-sm'
+                      : 'bg-gray-800 text-foreground hover:bg-primary hover:text-primary-foreground'
+                  }`}
                 >
                   {category}
                 </motion.span>
@@ -344,7 +358,11 @@ export default function Projects() {
                   variants={fadeInUp}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
-                  className="bg-card dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  className={`rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ${
+                    theme === 'light'
+                      ? 'bg-white border border-gray-100'
+                      : 'bg-gray-800'
+                  }`}
                 >
                   {/* Project Image Area */}
                   <div className="h-48 relative overflow-hidden">
@@ -359,14 +377,26 @@ export default function Projects() {
 
                   <div className="p-6">
                     <div className="mb-2">
-                      <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm ${
+                          theme === 'light'
+                            ? 'bg-blue-50 text-blue-600'
+                            : 'bg-primary/10 text-primary'
+                        }`}
+                      >
                         {project.category}
                       </span>
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">
                       {project.title}
                     </h3>
-                    <p className="text-secondary-foreground mb-4">
+                    <p
+                      className={`mb-4 ${
+                        theme === 'light'
+                          ? 'text-gray-600'
+                          : 'text-secondary-foreground'
+                      }`}
+                    >
                       {project.description}
                     </p>
 
@@ -375,40 +405,86 @@ export default function Projects() {
                       {project.technologies.slice(0, 3).map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-secondary dark:bg-gray-700 text-secondary-foreground rounded-full text-sm"
+                          className={`px-3 py-1 rounded-full text-sm ${
+                            theme === 'light'
+                              ? 'bg-gray-100 text-gray-600'
+                              : 'bg-gray-700 text-secondary-foreground'
+                          }`}
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="px-3 py-1 bg-secondary dark:bg-gray-700 text-secondary-foreground rounded-full text-sm">
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm ${
+                            theme === 'light'
+                              ? 'bg-gray-100 text-gray-600'
+                              : 'bg-gray-700 text-secondary-foreground'
+                          }`}
+                        >
                           +{project.technologies.length - 3} more
                         </span>
                       )}
                     </div>
 
                     {/* Project Details */}
-                    <div className="bg-secondary/50 dark:bg-gray-700/50 p-4 rounded-lg mb-4">
+                    <div
+                      className={`p-4 rounded-lg mb-4 ${
+                        theme === 'light'
+                          ? 'bg-gray-50 border border-gray-100'
+                          : 'bg-gray-700/50'
+                      }`}
+                    >
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm text-secondary-foreground/70">
+                        <span
+                          className={`text-sm ${
+                            theme === 'light'
+                              ? 'text-gray-500'
+                              : 'text-secondary-foreground/70'
+                          }`}
+                        >
                           Year
                         </span>
-                        <span className="text-sm font-medium text-foreground">
+                        <span
+                          className={`text-sm font-medium ${
+                            theme === 'light'
+                              ? 'text-gray-900'
+                              : 'text-foreground'
+                          }`}
+                        >
                           {project.year}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-secondary-foreground/70">
+                        <span
+                          className={`text-sm ${
+                            theme === 'light'
+                              ? 'text-gray-500'
+                              : 'text-secondary-foreground/70'
+                          }`}
+                        >
                           Client
                         </span>
-                        <span className="text-sm font-medium text-foreground">
+                        <span
+                          className={`text-sm font-medium ${
+                            theme === 'light'
+                              ? 'text-gray-900'
+                              : 'text-foreground'
+                          }`}
+                        >
                           {project.client}
                         </span>
                       </div>
                     </div>
 
                     {/* Detailed Description */}
-                    <p className="text-secondary-foreground mb-4 text-sm line-clamp-3">
+                    <p
+                      className={`mb-4 text-sm line-clamp-3 ${
+                        theme === 'light'
+                          ? 'text-gray-600'
+                          : 'text-secondary-foreground'
+                      }`}
+                    >
                       {project.detailedDescription}
                     </p>
 
@@ -417,7 +493,11 @@ export default function Projects() {
                       href={project.projectUrl || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary font-medium hover:text-primary/80 transition-colors inline-flex items-center"
+                      className={`font-medium transition-colors inline-flex items-center ${
+                        theme === 'light'
+                          ? 'text-blue-600 hover:text-blue-700'
+                          : 'text-primary hover:text-primary/80'
+                      }`}
                       whileHover={{ x: 5 }}
                       whileTap={{ scale: 0.97 }}
                     >
@@ -432,14 +512,14 @@ export default function Projects() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 relative overflow-hidden">
+      <section className="pt-24 pb-16 relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: 'url("/project-images/ready-background.png")',
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center top',
             filter: 'brightness(0.7)',
           }}
         />
@@ -461,7 +541,11 @@ export default function Projects() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
-                className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-100 transition duration-300"
+                className={`inline-block px-8 py-4 rounded-full font-medium text-lg transition duration-300 ${
+                  theme === 'light'
+                    ? 'bg-white text-indigo-600 hover:bg-gray-100 shadow-lg'
+                    : 'bg-white text-indigo-600 hover:bg-gray-100'
+                }`}
               >
                 Start a Conversation
               </Link>

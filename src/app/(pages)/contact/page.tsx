@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState, FormEvent, ChangeEvent } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 // Animation variants
 const fadeIn = {
@@ -42,6 +43,7 @@ interface FormData {
 }
 
 export default function Contact() {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -113,7 +115,11 @@ export default function Contact() {
         }}
       >
         {/* Overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <div
+          className={`absolute inset-0 z-0 ${
+            theme === 'light' ? 'bg-black opacity-60' : 'bg-black opacity-50'
+          }`}
+        ></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -133,7 +139,11 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 relative">
+      <section
+        className={`py-20 relative ${
+          theme === 'light' ? 'bg-gray-50' : 'bg-background'
+        }`}
+      >
         {/* Gradient effect - bottom right */}
         <motion.div
           className="absolute rounded-full z-0"
@@ -169,7 +179,9 @@ export default function Contact() {
                   <motion.div variants={fadeInUp} transition={{ delay: 0.1 }}>
                     <label
                       htmlFor="name"
-                      className="block text-foreground/80 dark:text-gray-300 mb-2"
+                      className={`block mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+                      }`}
                     >
                       Name
                     </label>
@@ -179,7 +191,11 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
+                        theme === 'light'
+                          ? 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                          : 'bg-gray-800 border-gray-700 text-white placeholder-gray-400'
+                      }`}
                       placeholder="Your name"
                       required
                     />
@@ -188,7 +204,9 @@ export default function Contact() {
                   <motion.div variants={fadeInUp} transition={{ delay: 0.2 }}>
                     <label
                       htmlFor="email"
-                      className="block text-foreground/80 dark:text-gray-300 mb-2"
+                      className={`block mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+                      }`}
                     >
                       Email
                     </label>
@@ -198,7 +216,11 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
+                        theme === 'light'
+                          ? 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                          : 'bg-gray-800 border-gray-700 text-white placeholder-gray-400'
+                      }`}
                       placeholder="Your email address"
                       required
                     />
@@ -207,7 +229,9 @@ export default function Contact() {
                   <motion.div variants={fadeInUp} transition={{ delay: 0.3 }}>
                     <label
                       htmlFor="subject"
-                      className="block text-foreground/80 dark:text-gray-300 mb-2"
+                      className={`block mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+                      }`}
                     >
                       Subject
                     </label>
@@ -217,7 +241,11 @@ export default function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
+                        theme === 'light'
+                          ? 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                          : 'bg-gray-800 border-gray-700 text-white placeholder-gray-400'
+                      }`}
                       placeholder="Message subject"
                       required
                     />
@@ -226,7 +254,9 @@ export default function Contact() {
                   <motion.div variants={fadeInUp} transition={{ delay: 0.4 }}>
                     <label
                       htmlFor="message"
-                      className="block text-foreground/80 dark:text-gray-300 mb-2"
+                      className={`block mb-2 ${
+                        theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+                      }`}
                     >
                       Message
                     </label>
@@ -236,7 +266,11 @@ export default function Contact() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border bg-background dark:bg-gray-800 border-primary/20 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors text-foreground dark:text-white"
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
+                        theme === 'light'
+                          ? 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                          : 'bg-gray-800 border-gray-700 text-white placeholder-gray-400'
+                      }`}
                       placeholder="Your message"
                       required
                     ></textarea>
@@ -244,7 +278,11 @@ export default function Contact() {
 
                   {submitError && (
                     <motion.div
-                      className="p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg"
+                      className={`p-3 border rounded-lg ${
+                        theme === 'light'
+                          ? 'bg-red-50 border-red-200 text-red-700'
+                          : 'bg-red-900/20 border-red-800 text-red-400'
+                      }`}
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                     >
@@ -254,7 +292,11 @@ export default function Contact() {
 
                   {submitSuccess && (
                     <motion.div
-                      className="p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg"
+                      className={`p-3 border rounded-lg ${
+                        theme === 'light'
+                          ? 'bg-green-50 border-green-200 text-green-700'
+                          : 'bg-green-900/20 border-green-800 text-green-400'
+                      }`}
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                     >
@@ -290,7 +332,11 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-lg mr-4">
+                    <div
+                      className={`p-3 rounded-lg mr-4 ${
+                        theme === 'light' ? 'bg-blue-50' : 'bg-primary/20'
+                      }`}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-primary"
@@ -310,10 +356,18 @@ export default function Contact() {
                       <h3 className="text-lg font-semibold mb-1 text-foreground">
                         Email
                       </h3>
-                      <p className="text-foreground/70 dark:text-gray-400">
+                      <p
+                        className={`${
+                          theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                        }`}
+                      >
                         akindejifuddi@gmail.com
                       </p>
-                      <p className="text-foreground/50 dark:text-gray-500 text-sm mt-1">
+                      <p
+                        className={`text-sm mt-1 ${
+                          theme === 'light' ? 'text-gray-500' : 'text-gray-500'
+                        }`}
+                      >
                         I typically respond within 24 hours
                       </p>
                     </div>
@@ -324,7 +378,11 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-lg mr-4">
+                    <div
+                      className={`p-3 rounded-lg mr-4 ${
+                        theme === 'light' ? 'bg-blue-50' : 'bg-primary/20'
+                      }`}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-primary"
@@ -344,10 +402,18 @@ export default function Contact() {
                       <h3 className="text-lg font-semibold mb-1 text-foreground">
                         Phone
                       </h3>
-                      <p className="text-foreground/70 dark:text-gray-400">
+                      <p
+                        className={`${
+                          theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                        }`}
+                      >
                         +234 813 185 2425
                       </p>
-                      <p className="text-foreground/50 dark:text-gray-500 text-sm mt-1">
+                      <p
+                        className={`text-sm mt-1 ${
+                          theme === 'light' ? 'text-gray-500' : 'text-gray-500'
+                        }`}
+                      >
                         Available Monday-Friday, 9am-5pm EST
                       </p>
                     </div>
@@ -358,7 +424,11 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-lg mr-4">
+                    <div
+                      className={`p-3 rounded-lg mr-4 ${
+                        theme === 'light' ? 'bg-blue-50' : 'bg-primary/20'
+                      }`}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-primary"
@@ -384,10 +454,18 @@ export default function Contact() {
                       <h3 className="text-lg font-semibold mb-1 text-foreground">
                         Location
                       </h3>
-                      <p className="text-foreground/70 dark:text-gray-400">
+                      <p
+                        className={`${
+                          theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                        }`}
+                      >
                         Lagos, Nigeria
                       </p>
-                      <p className="text-foreground/50 dark:text-gray-500 text-sm mt-1">
+                      <p
+                        className={`text-sm mt-1 ${
+                          theme === 'light' ? 'text-gray-500' : 'text-gray-500'
+                        }`}
+                      >
                         Available for remote work worldwide
                       </p>
                     </div>
@@ -403,7 +481,11 @@ export default function Contact() {
                       href="https://github.com/Akindejie"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
+                      className={`p-3 rounded-full transition-colors ${
+                        theme === 'light'
+                          ? 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
+                          : 'bg-gray-800 text-white hover:bg-gray-700'
+                      }`}
                       aria-label="GitHub"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -481,11 +563,11 @@ export default function Contact() {
 
       {/* CTA Section */}
       <section
-        className="py-16 relative overflow-hidden bg-secondary dark:bg-gray-900"
+        className="pt-24 pb-16 relative overflow-hidden bg-secondary dark:bg-gray-900"
         style={{
           backgroundImage: 'url(/project-images/background-cover-down.jpg)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
         }}
       >

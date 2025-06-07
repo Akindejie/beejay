@@ -597,14 +597,14 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 relative overflow-hidden">
+      <section className="pt-24 pb-16 relative overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: 'url("/project-images/ready-background.png")',
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center top',
             filter: 'brightness(0.7)',
           }}
         />
