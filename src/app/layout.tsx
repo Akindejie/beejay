@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/context/ThemeContext';
 import DarkModeGradientHandler from '@/components/DarkModeGradientHandler';
+import CircularTransition from '@/components/CircularTransition';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <DarkModeGradientHandler />
+          <CircularTransition />
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

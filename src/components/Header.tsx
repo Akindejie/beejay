@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
+import MagneticButton from './MagneticButton';
 import { useTheme } from '@/context/ThemeContext';
 
 const Header = () => {
@@ -68,20 +69,22 @@ const Header = () => {
         }`}
       >
         {isScrolled && (
-          <Link
-            href="/"
-            className="flex items-center text-primary hover:text-primary/80 transition-colors"
-          >
-            <div className="relative w-[120px] h-[36px]">
-              <Image
-                src={logoSrc}
-                alt="Akindejie Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </Link>
+          <MagneticButton intensity={0.2} className="inline-block">
+            <Link
+              href="/"
+              className="flex items-center text-primary hover:text-primary/80 transition-colors"
+            >
+              <div className="relative w-[120px] h-[36px]">
+                <Image
+                  src={logoSrc}
+                  alt="Akindejie Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </Link>
+          </MagneticButton>
         )}
         <div
           className={`flex items-center ${
@@ -95,15 +98,20 @@ const Header = () => {
               pathname === link.href ||
               (link.href !== '/' && pathname.startsWith(link.href));
             return (
-              <Link
+              <MagneticButton
                 key={link.href}
-                href={link.href}
-                className={`${linkBaseClasses} ${
-                  isActive ? linkActiveClasses : linkInactiveClasses
-                }`}
+                intensity={0.3}
+                className="inline-block"
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={`${linkBaseClasses} ${
+                    isActive ? linkActiveClasses : linkInactiveClasses
+                  } block`}
+                >
+                  {link.label}
+                </Link>
+              </MagneticButton>
             );
           })}
         </div>

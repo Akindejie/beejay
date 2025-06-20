@@ -317,6 +317,16 @@
     @apply transition duration-300 ease-in-out;
   }
 
+  /* Magnetic Button Effect */
+  .magnetic-button {
+    @apply transition-transform duration-300 ease-out;
+    will-change: transform;
+  }
+
+  .magnetic-button:hover {
+    @apply scale-105;
+  }
+
   @keyframes marquee {
     0% {
       transform: translateX(0);
