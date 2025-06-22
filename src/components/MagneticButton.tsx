@@ -17,10 +17,11 @@ const MagneticButton = ({
   onClick,
   as: Component = 'div',
 }: MagneticButtonProps) => {
-  const magneticRef = useRef<HTMLDivElement | HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const element = magneticRef.current;
+    const element = Component === 'button' ? buttonRef.current : divRef.current;
     if (!element) return;
 
     const handleMouseMove = (e: Event) => {
@@ -52,18 +53,18 @@ const MagneticButton = ({
       element.removeEventListener('mousemove', handleMouseMove);
       element.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [intensity]);
+  }, [intensity, Component]);
 
-  const commonProps = {
-    ref: magneticRef,
-    className: `magnetic-button transition-transform duration-300 ease-out ${className}`,
-    onClick,
-  };
+  const commonClasses = `magnetic-button transition-transform duration-300 ease-out ${className}`;
 
   return Component === 'button' ? (
-    <button {...commonProps}>{children}</button>
+    <button ref={buttonRef} className={commonClasses} onClick={onClick}>
+      {children}
+    </button>
   ) : (
-    <div {...commonProps}>{children}</div>
+    <div ref={divRef} className={commonClasses} onClick={onClick}>
+      {children}
+    </div>
   );
 };
 
