@@ -400,6 +400,34 @@
     animation: glow-pulse 2s infinite ease-in-out;
     color: var(--primary);
   }
+
+  /* Ensure AnimatedButton secondary variant is visible in light mode */
+  .animated-button-secondary {
+    background-color: white !important;
+    color: #111827 !important;
+    border: 2px solid #111827 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .dark .animated-button-secondary {
+    background-color: transparent !important;
+    color: white !important;
+    border: 2px solid white !important;
+  }
+
+  .animated-button-secondary:hover {
+    background-color: #111827 !important;
+    color: white !important;
+  }
+
+  .dark .animated-button-secondary:hover {
+    background-color: white !important;
+    color: #111827 !important;
+  }
 }
 
 /* Dark mode profile avatar with black-me.png */
