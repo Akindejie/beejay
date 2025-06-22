@@ -10,12 +10,12 @@ interface MagneticButtonProps {
   as?: 'button' | 'div';
 }
 
-const MagneticButton = ({ 
-  children, 
-  className = '', 
+const MagneticButton = ({
+  children,
+  className = '',
   intensity = 0.5,
   onClick,
-  as: Component = 'div'
+  as: Component = 'div',
 }: MagneticButtonProps) => {
   const magneticRef = useRef<HTMLDivElement | HTMLButtonElement>(null);
 
@@ -23,19 +23,20 @@ const MagneticButton = ({
     const element = magneticRef.current;
     if (!element) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: Event) => {
+      const mouseEvent = e as MouseEvent;
       const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
+      const x = mouseEvent.clientX - rect.left - rect.width / 2;
+      const y = mouseEvent.clientY - rect.top - rect.height / 2;
+
       const distance = Math.sqrt(x * x + y * y);
       const maxDistance = Math.max(rect.width, rect.height);
-      
+
       if (distance < maxDistance) {
         const strength = (maxDistance - distance) / maxDistance;
         const moveX = x * intensity * strength;
         const moveY = y * intensity * strength;
-        
+
         element.style.transform = `translate(${moveX}px, ${moveY}px)`;
       }
     };
@@ -60,14 +61,10 @@ const MagneticButton = ({
   };
 
   return Component === 'button' ? (
-    <button {...commonProps}>
-      {children}
-    </button>
+    <button {...commonProps}>{children}</button>
   ) : (
-    <div {...commonProps}>
-      {children}
-    </div>
+    <div {...commonProps}>{children}</div>
   );
 };
 
-export default MagneticButton; 
+export default MagneticButton;
