@@ -166,8 +166,8 @@ const ExperienceOrbit = () => {
       </div>
 
       {/* Orbit Container - Should be above gradients (z-index handled by .experience-orbit-section in globals.css) */}
-      <div className="relative flex justify-center items-center">
-        <div className="relative w-[450px] h-[450px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px]">
+      <div className="relative flex justify-center items-center px-4">
+        <div className="relative w-[min(90vw,400px)] h-[min(90vw,400px)] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px]">
           {/* Orbit Paths - Using much darker borders for light mode */}
           <div
             className="absolute inset-0 border-[3px] border-dashed border-gray-900 dark:border-white/30 rounded-full animate-orbit-cw z-20"
@@ -206,11 +206,10 @@ const ExperienceOrbit = () => {
           <div className="absolute inset-0 flex items-center justify-center z-40">
             {' '}
             {/* Increased z-index just in case */}
-            <div className="text-center">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-foreground">
+            <div className="text-center px-2">
+              <h2 className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-foreground">
                 EXPERIENCE IN <br />
-                TECHNICAL SOLUTIONS <br />
-                & WEB DEVELOPMENT
+                TECHNICAL SOLUTIONS <br />& WEB DEVELOPMENT
               </h2>
             </div>
           </div>

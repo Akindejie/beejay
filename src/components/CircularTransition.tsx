@@ -8,27 +8,61 @@ const CircularTransition = () => {
   const { isTransitioning, transitionOrigin, transitionDirection } = useTheme();
   const [maxRadius, setMaxRadius] = useState(0);
 
+  const calculateRadius = (origin: { x: number; y: number }) => {
+    // Get more reliable viewport dimensions for mobile
+    const screenWidth = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0
+    );
+    const screenHeight = Math.max(
+      document.documentElement.clientHeight,
+      window.innerHeight || 0,
+      window.screen?.height || 0
+    );
+
+    // Calculate distance to all four corners to ensure full coverage
+    const distances = [
+      // Top-left corner
+      Math.sqrt(Math.pow(origin.x, 2) + Math.pow(origin.y, 2)),
+      // Top-right corner
+      Math.sqrt(Math.pow(screenWidth - origin.x, 2) + Math.pow(origin.y, 2)),
+      // Bottom-left corner
+      Math.sqrt(Math.pow(origin.x, 2) + Math.pow(screenHeight - origin.y, 2)),
+      // Bottom-right corner
+      Math.sqrt(
+        Math.pow(screenWidth - origin.x, 2) +
+          Math.pow(screenHeight - origin.y, 2)
+      ),
+    ];
+
+    // Use the maximum distance to ensure the circle covers the entire screen
+    const calculatedRadius = Math.max(...distances);
+
+    // Add a small buffer for mobile safety (10% extra)
+    return calculatedRadius * 1.1;
+  };
+
   useEffect(() => {
     if (isTransitioning && transitionOrigin) {
-      // Calculate the maximum radius needed to cover the entire screen
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-
-      const maxDistanceX = Math.max(
-        transitionOrigin.x,
-        screenWidth - transitionOrigin.x
-      );
-      const maxDistanceY = Math.max(
-        transitionOrigin.y,
-        screenHeight - transitionOrigin.y
-      );
-
-      const calculatedRadius = Math.sqrt(
-        Math.pow(maxDistanceX, 2) + Math.pow(maxDistanceY, 2)
-      );
-
-      setMaxRadius(calculatedRadius);
+      setMaxRadius(calculateRadius(transitionOrigin));
     }
+  }, [isTransitioning, transitionOrigin]);
+
+  // Handle viewport changes (important for mobile)
+  useEffect(() => {
+    const handleResize = () => {
+      if (isTransitioning && transitionOrigin) {
+        setMaxRadius(calculateRadius(transitionOrigin));
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
   }, [isTransitioning, transitionOrigin]);
 
   if (!isTransitioning || !transitionOrigin) {
