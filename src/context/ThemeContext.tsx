@@ -15,6 +15,7 @@ interface ThemeContextProps {
   toggleTheme: (clickPosition?: { x: number; y: number }) => void;
   isTransitioning: boolean;
   transitionOrigin: { x: number; y: number } | null;
+  transitionDirection: 'expand' | 'shrink' | null;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -31,6 +32,9 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     x: number;
     y: number;
   } | null>(null);
+  const [transitionDirection, setTransitionDirection] = useState<
+    'expand' | 'shrink' | null
+  >(null);
 
   // Effect to read from local storage and set initial theme
   useEffect(() => {
@@ -69,6 +73,11 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       setTransitionOrigin(clickPosition);
       setIsTransitioning(true);
 
+      // Determine transition direction based on current theme
+      // Light → Dark: expand (circle grows outward)
+      // Dark → Light: shrink (circle shrinks inward)
+      setTransitionDirection(theme === 'light' ? 'expand' : 'shrink');
+
       // Start theme transition after a brief delay
       setTimeout(() => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -78,6 +87,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       setTimeout(() => {
         setIsTransitioning(false);
         setTransitionOrigin(null);
+        setTransitionDirection(null);
       }, 1000);
     } else {
       setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -86,7 +96,13 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   return (
     <ThemeContext.Provider
-      value={{ theme, toggleTheme, isTransitioning, transitionOrigin }}
+      value={{
+        theme,
+        toggleTheme,
+        isTransitioning,
+        transitionOrigin,
+        transitionDirection,
+      }}
     >
       {children}
     </ThemeContext.Provider>
