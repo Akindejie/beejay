@@ -92,12 +92,12 @@ export default function Home() {
               variants={fadeInLeft}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <AnimatedButton href="/projects" variant="secondary">
+              {/* <AnimatedButton href="/projects" variant="secondary">
                 View Projects
               </AnimatedButton>
               <AnimatedButton href="/contact" variant="primary">
                 Contact Me
-              </AnimatedButton>
+              </AnimatedButton> */}
             </motion.div>
             <motion.div
               className="flex gap-6 mt-2"

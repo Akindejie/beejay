@@ -12,9 +12,7 @@ type Theme = 'light' | 'dark';
 
 interface ThemeContextProps {
   theme: Theme;
-  toggleTheme: (clickPosition?: { x: number; y: number }) => void;
-  isTransitioning: boolean;
-  transitionOrigin: { x: number; y: number } | null;
+  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -26,11 +24,6 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>('light'); // Default to light
   const [mounted, setMounted] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [transitionOrigin, setTransitionOrigin] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
 
   // Effect to read from local storage and set initial theme
   useEffect(() => {
@@ -64,32 +57,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     }
   }, [theme, mounted]);
 
-  const toggleTheme = (clickPosition?: { x: number; y: number }) => {
-    if (isTransitioning) return; // Prevent multiple transitions
-
-    setIsTransitioning(true);
-
-    // Set the transition origin if provided
-    if (clickPosition) {
-      setTransitionOrigin(clickPosition);
-    }
-
-    // Start the theme change during the peak opacity (around 450ms)
-    setTimeout(() => {
-      setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-    }, 450);
-
-    // End transition after animation completes
-    setTimeout(() => {
-      setIsTransitioning(false);
-      setTransitionOrigin(null);
-    }, 1000);
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (
-    <ThemeContext.Provider
-      value={{ theme, toggleTheme, isTransitioning, transitionOrigin }}
-    >
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

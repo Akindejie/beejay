@@ -16,24 +16,29 @@ export default function AnimatedButton({
   variant = 'primary',
   className = '',
 }: AnimatedButtonProps) {
-  const baseClasses = {
-    primary: 'bg-primary text-primary-foreground',
-    secondary: 'bg-white text-primary',
-    outline:
-      'border-2 border-primary text-foreground dark:text-primary-foreground',
-  };
-
-  const hoverVariants = {
-    primary: { scale: 1.05, backgroundColor: 'var(--primary-dark)' },
-    secondary: { scale: 1.05, backgroundColor: 'var(--primary-foreground-90)' },
-    outline: { scale: 1.05, backgroundColor: 'var(--primary-foreground-10)' },
+  const getButtonClasses = (variant: ButtonVariant) => {
+    switch (variant) {
+      case 'primary':
+        return 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 shadow-lg hover:shadow-indigo-500/25';
+      case 'secondary':
+        return 'bg-white text-gray-900 hover:bg-gray-900 hover:text-white border-2 border-gray-900 shadow-lg hover:shadow-xl dark:bg-transparent dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-gray-900';
+      case 'outline':
+        return 'border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground dark:border-primary-foreground dark:text-primary-foreground dark:hover:bg-primary-foreground dark:hover:text-primary';
+      default:
+        return '';
+    }
   };
 
   return (
     <Link href={href} passHref>
       <motion.div
-        className={`inline-block px-8 py-3 rounded-full font-semibold shadow ${baseClasses[variant]} ${className}`}
-        whileHover={hoverVariants[variant]}
+        className={`inline-block px-8 py-3 rounded-full font-semibold transition-all duration-300 ${getButtonClasses(
+          variant
+        )} ${className}`}
+        whileHover={{
+          scale: 1.05,
+          transition: { duration: 0.2 },
+        }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2 }}
       >

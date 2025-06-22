@@ -13,14 +13,20 @@ const CircularTransition = () => {
       // Calculate the maximum radius needed to cover the entire screen
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
-      
-      const maxDistanceX = Math.max(transitionOrigin.x, screenWidth - transitionOrigin.x);
-      const maxDistanceY = Math.max(transitionOrigin.y, screenHeight - transitionOrigin.y);
-      
+
+      const maxDistanceX = Math.max(
+        transitionOrigin.x,
+        screenWidth - transitionOrigin.x
+      );
+      const maxDistanceY = Math.max(
+        transitionOrigin.y,
+        screenHeight - transitionOrigin.y
+      );
+
       const calculatedRadius = Math.sqrt(
         Math.pow(maxDistanceX, 2) + Math.pow(maxDistanceY, 2)
       );
-      
+
       setMaxRadius(calculatedRadius);
     }
   }, [isTransitioning, transitionOrigin]);
@@ -43,8 +49,8 @@ const CircularTransition = () => {
           {/* Subtle spreading circle with glow effect */}
           <motion.div
             className={`absolute rounded-full transition-colors duration-300 ${
-              theme === 'light' 
-                ? 'bg-gray-900 shadow-2xl shadow-gray-900/50' 
+              theme === 'light'
+                ? 'bg-gray-900 shadow-2xl shadow-gray-900/50'
                 : 'bg-white shadow-2xl shadow-white/50'
             }`}
             style={{
@@ -73,16 +79,14 @@ const CircularTransition = () => {
               opacity: {
                 times: [0, 0.15, 0.35, 0.5, 0.7, 0.9, 1],
                 duration: 0.9,
-              }
+              },
             }}
           />
-          
+
           {/* Inner circle for smoother effect */}
           <motion.div
             className={`absolute rounded-full ${
-              theme === 'light' 
-                ? 'bg-gray-800' 
-                : 'bg-gray-100'
+              theme === 'light' ? 'bg-gray-800' : 'bg-gray-100'
             }`}
             style={{
               left: transitionOrigin.x,
@@ -109,7 +113,7 @@ const CircularTransition = () => {
               opacity: {
                 times: [0, 0.2, 0.4, 0.6, 0.8, 1],
                 duration: 0.8,
-              }
+              },
             }}
           />
         </motion.div>
