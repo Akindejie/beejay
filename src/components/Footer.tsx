@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-card text-card-foreground py-16 overflow-hidden z-10">
+    <footer className="footer-reveal bg-card text-card-foreground overflow-hidden z-10">
       {/* Big background text */}
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center overflow-hidden">
         <span
@@ -21,7 +21,7 @@ const Footer = () => {
         </span>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 py-16">
         {/* Footer top with logo and contact */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>

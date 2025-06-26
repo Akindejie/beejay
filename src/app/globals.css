@@ -368,17 +368,17 @@
 
   .orbit-item-cw {
     animation: orbit-counter-clockwise 40s linear infinite;
-    z-index: 30;
+    z-index: 10;
   }
   .orbit-item-ccw {
     animation: orbit-clockwise 50s linear infinite;
-    z-index: 30;
+    z-index: 10;
   }
 
   /* Ensure orbit elements are visible in dark mode */
   html.dark .orbit-item-cw,
   html.dark .orbit-item-ccw {
-    z-index: 30;
+    z-index: 10;
   }
 
   @keyframes glow-pulse {
@@ -446,7 +446,7 @@ html.dark #profile-avatar {
 
 /* Experience orbit section for full visibility */
 .experience-orbit-section {
-  z-index: 20;
+  z-index: 10;
   background-color: white !important;
 }
 
@@ -460,4 +460,27 @@ html.dark .experience-orbit-section {
 }
 
 .experience-orbit-section > * {
+  z-index: 10;
+}
+
+/* Simple Sticky Footer Reveal Effect */
+.footer-reveal {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Main content should be tall enough to allow footer reveal */
+main {
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+  background-color: var(--background);
+}
+
+/* Ensure footer has proper background in dark mode */
+html.dark .footer-reveal {
+  background-color: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

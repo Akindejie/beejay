@@ -43,7 +43,7 @@ export default function RootLayout({
           <DarkModeGradientHandler />
           <CircularTransition />
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
