@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
             <h2 className="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-600">
-              Lasisi Akindeji
+              Wasiu Ibrahim
             </h2>
             <div className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
               <svg
@@ -43,11 +43,8 @@ const Footer = () => {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <a
-                href="mailto:akindejifuddi@gmail.com"
-                className="hover:underline"
-              >
-                akindejifuddi@gmail.com
+              <a href="mailto:bolibro623@gmail.com" className="hover:underline">
+                bolibro623@gmail.com
               </a>
             </div>
           </div>
@@ -171,42 +168,6 @@ const Footer = () => {
                   LinkedIn
                 </span>
               </a>
-              <a
-                href="https://x.com/Akindejie"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors py-2 group"
-              >
-                <svg
-                  className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                </svg>
-                <span className="uppercase font-medium group-hover:translate-x-1 transition-transform duration-300">
-                  Twitter
-                </span>
-              </a>
-              <a
-                href="https://dribbble.com/akindejie"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors py-2 group"
-              >
-                <svg
-                  className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073a42.153 42.153 0 00-.767-1.68c2.31-1 4.165-2.358 5.548-4.082a9.863 9.863 0 012.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68a46.287 46.287 0 00-3.488-5.438A9.894 9.894 0 0112 2.087c2.275 0 4.368.779 6.043 2.072zM7.527 3.166a44.59 44.59 0 013.537 5.381c-2.43.715-5.331 1.082-8.684 1.105a9.931 9.931 0 015.147-6.486zM2.087 12l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48A9.865 9.865 0 012.087 12zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027a39.137 39.137 0 012.043 7.46c-3.349 1.291-6.953.666-9.641-1.433zm11.586.43a41.098 41.098 0 00-1.92-6.897c1.876-.265 3.94-.196 6.199.196a9.93 9.93 0 01-4.279 6.701z" />
-                </svg>
-                <span className="uppercase font-medium group-hover:translate-x-1 transition-transform duration-300">
-                  Dribbble
-                </span>
-              </a>
             </div>
           </div>
         </div>
@@ -218,7 +179,7 @@ const Footer = () => {
               © {currentYear}
               <span className="group-hover:text-primary transition-colors duration-300">
                 {' '}
-                Lasisi Akindeji
+                Wasiu Ibrahim
               </span>
               . All Rights Reserved.
             </p>

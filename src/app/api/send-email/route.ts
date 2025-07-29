@@ -18,14 +18,14 @@ export async function POST(request: Request) {
       service: 'gmail',
       auth: {
         // Using environment variables
-        user: process.env.EMAIL_USER || 'akindejifuddi@gmail.com',
+        user: process.env.EMAIL_USER || 'bolibro623@gmail.com',
         pass: process.env.EMAIL_PASS,
       },
     });
 
     // Set up email data
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'akindejifuddi@gmail.com',
+      from: process.env.EMAIL_USER || 'bolibro623@gmail.com',
       to: to_email,
       subject: `Portfolio Contact: ${subject}`,
       replyTo: email,

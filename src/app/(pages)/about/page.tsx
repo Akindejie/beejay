@@ -88,7 +88,7 @@ export default function About() {
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden mx-auto shadow-xl">
                 <Image
                   src="/project-images/about-me-photo.png"
-                  alt="Lasisi Akindeji"
+                  alt="Wasiu Ibrahim"
                   fill
                   style={{ objectFit: 'cover' }}
                   className="rounded-xl"
@@ -113,7 +113,7 @@ export default function About() {
                 className="text-3xl font-bold mb-6 text-foreground"
                 variants={fadeInUp}
               >
-                Lasisi Fuadeen
+                Wasiu Ibrahim
               </motion.h2>
 
               <motion.p

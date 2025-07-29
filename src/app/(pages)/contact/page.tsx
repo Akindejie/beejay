@@ -77,7 +77,7 @@ export default function Contact() {
         },
         body: JSON.stringify({
           ...formData,
-          to_email: 'akindejifuddi@gmail.com',
+          to_email: 'bolibro623@gmail.com',
         }),
       });
 
@@ -361,7 +361,7 @@ export default function Contact() {
                           theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                         }`}
                       >
-                        akindejifuddi@gmail.com
+                        bolibro623@gmail.com
                       </p>
                       <p
                         className={`text-sm mt-1 ${
@@ -407,7 +407,7 @@ export default function Contact() {
                           theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                         }`}
                       >
-                        +234 813 185 2425
+                        +1 (216) 232-5339
                       </p>
                       <p
                         className={`text-sm mt-1 ${
@@ -459,7 +459,7 @@ export default function Contact() {
                           theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                         }`}
                       >
-                        Lagos, Nigeria
+                        Cleveland, Ohio, USA
                       </p>
                       <p
                         className={`text-sm mt-1 ${
@@ -515,42 +515,6 @@ export default function Contact() {
                         viewBox="0 0 24 24"
                       >
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                      </svg>
-                    </motion.a>
-                    <motion.a
-                      href="https://x.com/Akindejie"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
-                      aria-label="Twitter"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                      </svg>
-                    </motion.a>
-                    <motion.a
-                      href="https://dribbble.com/akindejie"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
-                      aria-label="Dribbble"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073a42.153 42.153 0 00-.767-1.68c2.31-1 4.165-2.358 5.548-4.082a9.863 9.863 0 012.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68a46.287 46.287 0 00-3.488-5.438A9.894 9.894 0 0112 2.087c2.275 0 4.368.779 6.043 2.072zM7.527 3.166a44.59 44.59 0 013.537 5.381c-2.43.715-5.331 1.082-8.684 1.105a9.931 9.931 0 015.147-6.486zM2.087 12l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48A9.865 9.865 0 012.087 12zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027a39.137 39.137 0 012.043 7.46c-3.349 1.291-6.953.666-9.641-1.433zm11.586.43a41.098 41.098 0 00-1.92-6.897c1.876-.265 3.94-.196 6.199.196a9.93 9.93 0 01-4.279 6.701z" />
                       </svg>
                     </motion.a>
                   </div>

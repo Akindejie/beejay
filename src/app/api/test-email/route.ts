@@ -11,7 +11,7 @@ export async function GET() {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER || 'akindejifuddi@gmail.com',
+        user: process.env.EMAIL_USER || 'bolibro623@gmail.com',
         pass: process.env.EMAIL_PASS,
       },
     });
@@ -19,7 +19,7 @@ export async function GET() {
     // Set up email data for test
     const mailOptions = {
       from: 'test@example.com',
-      to: 'akindejifuddi@gmail.com',
+      to: 'bolibro623@gmail.com',
       subject: 'Test Email from Portfolio',
       text: 'This is a test email to verify your email sending configuration works.',
       html: '<div><h2>Test Email</h2><p>This is a test email to verify your email sending configuration works.</p></div>',

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Akindejie Portfolio',
+  title: 'Bolibro Portfolio',
   description:
     'Portfolio website featuring expertise in technical support, software engineering, and graphic design',
   icons: {
