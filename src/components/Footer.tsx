@@ -151,7 +151,7 @@ const Footer = () => {
                 </span>
               </a>
               <a
-                href="https://www.linkedin.com/in/akindejie/"
+                href="https://www.linkedin.com/in/wasiuibrahim/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors py-2 group"

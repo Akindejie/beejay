@@ -1,18 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import MagneticButton from './MagneticButton';
-import { useTheme } from '@/context/ThemeContext';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { theme } = useTheme();
 
   // Scroll detection
   useEffect(() => {
@@ -51,7 +48,6 @@ const Header = () => {
   const linkActiveClasses = 'text-primary-foreground bg-primary font-semibold';
 
   const availableText = 'Available for work';
-  const logoSrc = theme === 'dark' ? '/akindejie-white.svg' : '/akindejie.svg';
 
   return (
     <>
@@ -65,15 +61,9 @@ const Header = () => {
                 href="/"
                 className="flex items-center text-primary hover:text-primary/80 transition-colors"
               >
-                <div className="relative w-[100px] sm:w-[120px] h-[30px] sm:h-[36px]">
-                  <Image
-                    src={logoSrc}
-                    alt="Akindejie Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+                <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent tracking-tight">
+                  Bolibro
+                </span>
               </Link>
             </MagneticButton>
 

@@ -500,10 +500,10 @@ export default function Contact() {
                       </svg>
                     </motion.a>
                     <motion.a
-                      href="https://www.linkedin.com/in/akindejie/"
+                      href="https://www.linkedin.com/in/wasiuibrahim/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-gray-700 transition-colors"
+                      className="bg-card dark:bg-gray-800 text-foreground dark:text-white p-3 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
                       aria-label="LinkedIn"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}

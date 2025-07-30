@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-import { useTheme } from '@/context/ThemeContext';
 import { useEffect, useState } from 'react';
 
 interface LoaderProps {
@@ -10,26 +8,19 @@ interface LoaderProps {
 }
 
 const Loader = ({ fullScreen = true, size = 'medium' }: LoaderProps) => {
-  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Ensure theme-related code only runs after component is mounted
+  // Ensure component is mounted
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
 
-  // Logo source based on theme
-  const logoSrc =
-    mounted && theme === 'dark'
-      ? '/akindejie-icon-white.svg'
-      : '/akindejie-icon.svg';
-
   // Size mapping
   const sizeMap = {
-    small: { width: 30, height: 30 },
-    medium: { width: 50, height: 50 },
-    large: { width: 80, height: 80 },
+    small: { width: 24, height: 24 },
+    medium: { width: 40, height: 40 },
+    large: { width: 64, height: 64 },
   };
 
   const dimensions = sizeMap[size];
@@ -38,28 +29,11 @@ const Loader = ({ fullScreen = true, size = 'medium' }: LoaderProps) => {
     return (
       <div className="fixed inset-0 flex items-center justify-center z-50 bg-background/80 backdrop-blur-sm">
         <div className="flex flex-col items-center gap-4">
-          <div className="relative animate-pulse">
+          <div className="relative">
             <div
-              className="absolute inset-0 rounded-full bg-primary/20 animate-ping"
-              style={{
-                width: dimensions.width + 20,
-                height: dimensions.height + 20,
-                top: -10,
-                left: -10,
-              }}
-            ></div>
-            <div
-              className="relative animate-spin-slow"
+              className="animate-spin rounded-full border-4 border-primary/20 border-t-primary"
               style={{ width: dimensions.width, height: dimensions.height }}
-            >
-              <Image
-                src={logoSrc}
-                alt="Loading"
-                width={dimensions.width}
-                height={dimensions.height}
-                className="drop-shadow-glow"
-              />
-            </div>
+            ></div>
           </div>
           <p className="text-foreground animate-pulse font-medium">
             Loading...
@@ -71,28 +45,11 @@ const Loader = ({ fullScreen = true, size = 'medium' }: LoaderProps) => {
 
   return (
     <div className="flex items-center justify-center py-4">
-      <div className="relative animate-pulse">
+      <div className="relative">
         <div
-          className="absolute inset-0 rounded-full bg-primary/20 animate-ping"
-          style={{
-            width: dimensions.width + 20,
-            height: dimensions.height + 20,
-            top: -10,
-            left: -10,
-          }}
-        ></div>
-        <div
-          className="relative animate-spin-slow"
+          className="animate-spin rounded-full border-4 border-primary/20 border-t-primary"
           style={{ width: dimensions.width, height: dimensions.height }}
-        >
-          <Image
-            src={logoSrc}
-            alt="Loading"
-            width={dimensions.width}
-            height={dimensions.height}
-            className="drop-shadow-glow"
-          />
-        </div>
+        ></div>
       </div>
     </div>
   );
