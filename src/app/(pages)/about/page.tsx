@@ -508,22 +508,26 @@ export default function About() {
 
               <div className="mb-6">
                 <h4 className="text-lg font-semibold mb-1 text-foreground">
-                  Bachelor of Science in Computer Science
+                  Kent State University, Ohio — B.Sc
                 </h4>
                 <p className="text-secondary-foreground mb-1">
-                  University of Lagos
+                  GRADUATION - 2019
                 </p>
-                <p className="text-secondary-foreground/70">2012 - 2016</p>
+                <p className="text-secondary-foreground/70">
+                  Computer Science - B.S
+                </p>
               </div>
 
               <div>
                 <h4 className="text-lg font-semibold mb-1 text-foreground">
-                  Software Engineering And Networking
+                  Lakeland Community College, Ohio — AAB
                 </h4>
                 <p className="text-secondary-foreground mb-1">
-                  National Institute of Information Technology (NIIT){' '}
+                  GRADUATION - 2017
                 </p>
-                <p className="text-secondary-foreground/70">2010 - 2012</p>
+                <p className="text-secondary-foreground/70">
+                  Comp Science/Software Eng (9259), AAB
+                </p>
               </div>
             </motion.div>
 
